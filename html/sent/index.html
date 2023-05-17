@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+<meta name="description" content="차좀빼주세요">
+<meta name="keywords" content="차좀빼주세요">
+<title>차좀빼주세요</title>
+<link rel="icon" type="image/png" href="../../resources/images/favicon.png">
+<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+<script src="../../resources/js/jquery-1.11.2.min.js"></script>
+<script src="../../resources/js/jquery_ui.js"></script>
+<script src="../../resources/js/jquery.ui.chatbox.js"></script>
+<script src="../../resources/js/vimeo.player.js"></script>
+</head>
+
+<body>
+
+<div id="wrap">
+	<!-- S: chat-header -->
+	<header class="chat-header">
+		<button type="button" class="btn-alram" title="알림">알림</button>
+		<h1><strong>12가1234 차주 채팅</strong></h1>
+		<span class="txt-status">호출중</span>
+	</header>
+	<!-- //E: chat-header -->
+
+	<!-- S: sent-container -->
+	<div class="sent-container">		
+		<div class="chat-contents">	
+			<div class="car-owner-msg">
+				<p>단지내 피트니스에서 운동중입니다.<br>연락주시면 바로 나가겠습니다.</p>
+			</div>
+			<div class="chabbae-contact">
+				<ul>
+					<li class="me"><span>나</span></li>
+					<li class="bot"><span>차빼봇</span></li>
+					<li class="owner"><span>차주</span></li>
+				</ul>
+				<dl>
+					<dt>차빼가 대신 연락할게요!</dt>
+					<dd>차주 2인에게 동시 연락중입니다.<br>편하게 기다려주세요.</dd>
+				</dl>
+			</div>
+			<div class="apt-look-around">
+				<h2>기다리는 동안 아파트 구경 어떠세요?</h2>
+				<div class="tslide">
+					<ul>
+						<li>
+							<dl onclick="front.modalView('pop-aptview')">
+								<dt><span class="pic"><img src="../../resources/images/temp_img_01.jpg" alt=""></span><strong>분양중</strong></dt>
+								<dd>
+									<strong>힐스테이트 삼성</strong>
+									<p><em>현장위치</em><span>서울시 강남구 삼성동 144-6~8, 12번지</span></p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl onclick="front.modalView('pop-aptview')">
+								<dt><span class="pic"><img src="../../resources/images/temp_img_02.jpg" alt=""></span><strong>분양중</strong></dt>
+								<dd>
+									<strong>힐스테이트 라군인테라스</strong>
+									<p><em>현장위치</em><span>서울시 강남구 삼성동 144-6~8, 12번지</span></p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl onclick="front.modalView('pop-aptview')">
+								<dt><span class="pic"><img src="../../resources/images/temp_img_03.jpg" alt=""></span><strong>분양중</strong></dt>
+								<dd>
+									<strong>힐스테이트 원주 레스티지</strong>
+									<p><em>현장위치</em><span>서울시 강남구 삼성동 144-6~8, 12번지</span></p>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl onclick="front.modalView('pop-aptview')">
+								<dt><span class="pic"><img src="../../resources/images/temp_img_04.jpg" alt=""></span><strong>분양중</strong></dt>
+								<dd>
+									<strong>힐스테이트 서대구역 센트럴</strong>
+									<p><em>현장위치</em><span>서울시 강남구 삼성동 144-6~8, 12번지</span></p>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="chat-ui-div"></div>
+			<div class="chat-msgbox" style="display:none">
+				<div class="msg-first-send"><strong>"지정주차 구역입니다."</strong></div>
+				<div class="msg-sorry-contact">불편함을 드려 죄송합니다. 해당 내용으로 차주와 곧 연결해 드리겠습니다.</div>
+				<div class="msg-get-owner">
+					<p class="pic"></p>
+					<ul>
+						<li><p>연락 확인했습니다.</p></li>
+						<li><p><strong>5분</strong> 내로 이동주차 하겠습니다.</p></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="msg-owner-complete"  style="display:none"><p>차주가 완료한 연락입니다.</p></div>
+
+			<div class="chabbae-sms-pr" style="display:none">
+				<dl>
+					<dt>
+						<em>무료이용</em>
+						<strong>이동주차 연락.</strong>
+						<span>스마트하게 관리하는 <br>방법이 궁금하다면?</span>							
+					</dt>
+					<dd><p>안심QR코드로 개인정보 보호까지!</p></dd>
+				</dl>
+				<button type="button" onclick="front.modalView('pop-smsapply')">문자로 안내 받기</button>
+			</div>
+		</div>
+	</div>
+	<!-- //E: sent-container -->	
+	
+	<!-- S: chat-bottom -->
+	<div class="chat-bottom">
+		<div class="ars-calling">
+			<ul class="calling-msg">
+				<li><span>ARS 전화가 가고있는 중입니다.</span><em class="timer-view">00:00</em></li>
+				<li class="recall">
+					<span>호출이 끝났습니다.</span>
+					<p><a href="javascript:arsReCall()">재호출</a><a href="#">기다릴게요</a></p>
+				</li>
+			</ul>
+		</div>
+		<div class="direct-msg open">
+			<h2><strong>빠른 요청 문구</strong><button type="button" class="btn-msg-toggle" onclick="directMsgToggle()">닫기</button></h2>
+			<p>추가 메시지를 남기면 차주 호출에 도움이 됩니다.</p>
+			<div class="tslide">
+				<ul>
+					<li>
+						<h3>전화하기</h3>
+						<div class="btnset">
+							<button type="button" onclick="arsReCall()">안심 ARS 재호출</button>
+							<button type="button">직접 전화</button>
+						</div>
+						<p class="txt-msg">차빼가 차주를 호출 중일 때는 전화 시 통화 중으로 뜰 수 있습니다.</p>
+					</li>
+					<li>
+						<h3>이동주차 문제</h3>
+						<ul>
+							<li><a href="javascript:chatCall('차량 이동 부탁드려요.')">차량 이동 부탁드려요.</a></li>
+							<li><a href="javascript:chatCall('어디에 온 건지 알려주세요.')">어디에 온 건지 알려주세요.</a></li>
+							<li><a href="javascript:chatCall('올바른 주차 해주세요.')">올바른 주차 해주세요.</a></li>
+							<li><a href="javascript:chatCall('지정주차 구역입니다.')">지정주차 구역입니다.</a></li>
+						</ul>
+					</li>
+					<li>
+						<h3>차량문제</h3>
+						<ul>
+							<li><a href="javascript:chatCall('트렁크가 열려있어요.')">트렁크가 열려있어요.</a></li>
+							<li><a href="javascript:chatCall('타이어 바람이 빠져있어요.')">타이어 바람이 빠져있어요.</a></li>
+							<li><a href="javascript:chatCall('차량 창문이 열려있어요.')">차량 창문이 열려있어요.</a></li>
+							<li><a href="javascript:chatCall('차량 라이트가 켜져있어요.')">차량 라이트가 켜져있어요.</a></li>
+						</ul>
+					</li>
+					<li class="direct-insert">
+						<h3>직접입력</h3>
+						<div class="btnset">
+							<button type="button" class="btn-direct-insert" onclick="chatInsert()">직접입력</button>
+						</div>
+						<p class="txt-msg">차량문제나 사고 시 직접입력을 사용해보세요</p>						
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //E: chat-bottom -->
+	
+	<!-- S: modalpop -->
+	<div class="modalpop">		
+		<!-- S: pop-aptview -->
+		<div class="popupwrap pop-aptview">
+			<button type="button" class="btn-popclose" onclick="front.modalHide('pop-aptview')" title="닫기">닫기</button>
+			<h1 class="hide">분양정보</h1>
+			<div class="popcontents">
+				<dl class="apt-default-info">
+					<dt><em>분양중</em><strong>힐스테이트 삼성</strong></dt>
+					<dd>
+						<ul>
+							<li><span>현장위치</span><p>서울시 강남구 삼성동 144-6~8, 12번지</p></li>
+							<li><span>총 세대 수</span><p>165실</p></li>
+							<li><span>문의전화</span><p>02-545-1446</p></li>
+						</ul>
+					</dd>
+				</dl>
+				<div class="vod-pdf-info">
+					<div class="vod-view">
+						<iframe src="https://player.vimeo.com/video/715075494?h=030ea222e7&color=272F3C&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<button type="button">카탈로그 보기</button>
+				</div>
+				<div class="sales-guide">
+					<h2>
+						<strong>분양안내 받기</strong>
+						<span>전화번호를 입력하시면 <em>힐스테이트 삼성</em>의<br>분양안내를 누구보다 빠르게 받아보실 수 있습니다.</span>
+					</h2>
+					<fieldset>
+						<div class="formgroup">
+							<label>휴대폰 번호</label>
+							<p class="inpbox"><input type="text" value="010-7888-4444"></p>
+						</div>
+						<span class="txt-caution-msg">본인의 연락처로 작성해주세요.</span>
+						<div class="agreechk">
+							<span><input type="checkbox" id="agreeOk" checked><label for="agreeOk">약관 전체 동의</label></span>
+							<a href="#">보기</a>
+						</div>
+					</fieldset>
+				</div>
+				<div class="sales-contactus">
+					<div class="cscenter"><span>문의사항</span><strong>02-545-1446</strong></div>
+					<button type="button" onclick="front.modalView('pop-alert.apt', 'pop-aptview')">분양안내받기</button>
+				</div>
+			</div>
+			<div class="popupwrap pop-alert apt"> <!-- 각 부모팝업 안에 alert popup -->
+				<div class="popcontents">
+					<div class="alert-msg">
+						<p>관심고객 등록이<br>접수되었습니다.</p>
+					</div>
+					<button type="button" class="btn-black" onclick="front.modalHide('pop-alert.apt', 'pop-aptview')">닫기</button>
+				</div>
+			</div>
+		</div>
+		<!-- //E: pop-aptview -->
+		
+		<!-- S: pop-smsapply -->
+		<div class="popupwrap pop-smsapply">
+			<button type="button" class="btn-popclose" title="닫기">닫기</button>
+			<h1 class="hide">문자 분양정보 보내기</h1>
+			<div class="popcontents">
+				<div class="sales-guide">
+					<h2>
+						<strong>문자로 가입안내 받기</strong>
+						<span>휴대폰번호를 남겨주시면 문자로 차좀빼주세요<br>가입안내를 전달드립니다!</span>
+					</h2>
+					<div class="qr-view"><img src="../../resources/images/temp_qr_img.jpg" alt=""></div>
+					<fieldset>
+						<div class="formgroup">
+							<label>휴대폰 번호</label>
+							<p class="inpbox"><input type="text" value="010-7888-4444"></p>
+						</div>
+						<span class="txt-caution-msg">본인의 연락처로 작성해주세요.</span>
+						<div class="agreechk">
+							<span><input type="checkbox" checked id="agreeOk2"><label for="agreeOk2">약관 전체 동의</label></span>
+							<a href="#">보기</a>
+						</div>
+						<button type="button" class="btn-black" onclick="front.modalView('pop-alert.sms', 'pop-smsapply')">문자로 안내 받기</button>
+					</fieldset>
+				</div>
+			</div>
+			<div class="popupwrap pop-alert sms"> <!-- 각 부모팝업 안에 alert popup -->
+				<div class="popcontents">
+					<div class="alert-msg">
+						<p>차좀빼주세요<br>가입안내를 발송했습니다!</p>
+					</div>
+					<button type="button" class="btn-black" onclick="front.modalHide('pop-alert.sms', 'pop-smsapply')">닫기</button>
+				</div>
+			</div>
+		</div>
+		<!-- S: pop-smsapply -->
+	</div>
+	<!-- //E: modalpop -->
+</div>
+
+<script src="../../resources/js/front_ui.js"></script>
+<script>
+
+const timeView = document.querySelector('.timer-view');
+
+function Countdown(seconds) {
+  this.sec = seconds;
+  this.mins = seconds > 60? seconds/60 : 0;        
+  tick();
+
+  function tick() {
+      if(this.sec > 60){
+          this.current_minutes = mins-1;
+      }
+      this.sec--;
+      timeView.textContent = (!this.mins? '00' : this.current_minutes.toString()) + ':' + (this.sec < 10 ? '0' : '') + String(this.sec);
+      if( this.sec > 0 ) {
+          stopTime = setTimeout(tick, 1000);
+      } else {
+          if(this.mins > 1){
+              countdown(this.mins-1);           
+          }
+      }
+  }
+}
+
+
+
+function arsReCall(){
+	$("ul.calling-msg li.recall").hide();
+	$("ul.calling-msg li:first-child").css("display", "flex");
+	$("ul.calling-msg li:first-child span").text("차빼가 대신 전화 거는 중이에요.");
+	clearTimeout();
+	Countdown(10); // 10s setting
+}
+
+function directMsgToggle(){
+	if (!$(".direct-msg").is(".open")){
+		$(".direct-msg").addClass("open");
+		$(".chat-bottom").animate({bottom:"0"}, 500, function(){			
+			$(".btn-msg-toggle").text("닫기");
+		});
+	}else{
+		$(".direct-msg").removeClass("open");
+		$(".chat-bottom").animate({bottom:"-33rem"}, 500);
+		$(".btn-msg-toggle").text("열기");
+		$(".chat-bottom .transparents-layer").animate({opacity:"0"}, 300, function(){
+			$(this).remove();
+		});
+	}
+}
+
+
+setTimeout(function(){
+	$(".car-owner-msg").addClass("animated");
+
+	setTimeout(function(){
+		$(".chabbae-contact").addClass("animated");
+		$(".chat-header .btn-alram").addClass("animated");
+		setTimeout(function(){
+			$(".chat-bottom").addClass("animated");
+			Countdown(10); // 10s setting
+			
+			setTimeout(function(){
+				$(".apt-look-around").fadeIn();
+				$("html, body").animate({scrollTop:'+=280'}, 1000);
+				setTimeout(function(){
+					$(".chat-bottom").addClass("dOpen").animate({bottom:"0"}, 600, function(){
+						$(this).append("<div class='transparents-layer'></div>");
+						$("ul.calling-msg li").hide();
+						$("ul.calling-msg li.recall").css("display", "flex");
+						clearTimeout();
+					});	
+				}, 7000);
+			}, 2500); 
+
+		}, 3000);
+	}, 1200);	
+
+}, 1200);
+
+
+function chatCall(clickMsg){
+	directMsgToggle();
+	$("html, body").animate({scrollTop:'+=400'}, 1000);
+	$(".sent-container").addClass("chat-insert");
+	$("#chat-ui-div").append("<div class='ui-chatbox-msg me'><strong>"+clickMsg+"</strong></div>");
+	$("#chat-ui-div").append("<div class='ui-chatbox-msg'><p class='alert-notice'>불편함을 드려 죄송합니다. 해당 내용으로 차주와 곧 연결해 드리겠습니다.</p></div>");
+	//$("#chat-ui-div").chatbox("option", "boxManager").addMsg("", "불편함을 드려 죄송합니다. 해당 내용으로 차주와 곧 연결해 드리겠습니다.");
+	$("#chat-ui-div").chatbox({
+		width:"100%",
+		highlightBox:false,
+		user:"me",
+		messageSent:function(id, user, msg){
+			this.boxManager.addMsg("", msg);
+		}
+	});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+@charset "UTF-8";
+
+/* contents */
+.splash-logo {width:100%; height:100vh; display:flex; align-items:center; justify-content:center; cursor:pointer}
+.splash-logo h1 {font-size:3.6rem; color:#111; font-family:'SCD'; font-weight:700}
+
+
+header {position:absolute; left:0; top:0; z-index:40; display:flex; align-items:center; justify-content:space-between; width:100%; height:4.8rem; padding:0 2rem; background:#f9fafc}
+header h1 {position:absolute; left:50%; top:0; width:60%; height:4.8rem; transform:translate(-50%, 0); display:flex; align-items:center; justify-content:center}
+header h1 strong {color:#000; font-size:1.6rem; font-weight:700}
+header .btn-prev {width:3rem; height:3rem; margin-left:-1rem; background:url('../images/icon_prev.png') no-repeat 50%; background-size:2rem auto; font-size:0; text-indent:-99999rem}
+header.chat-header {position:fixed}
+header.chat-header .btn-alram {opacity:0; transition:all 0.3s; width:2rem; height:2.4rem; background:url('../images/icon_alram.png') no-repeat 0 50%; background-size:1.95rem auto; font-size:0; text-indent:-9999rem}
+header.chat-header .btn-alram.animated {opacity:1; animation:opacity 0.5s}
+header.chat-header .txt-status {width:6.4rem; height:2.4rem; display:flex; align-items:center; justify-content:center; border-radius:1.2rem; background:#f9fafc; border:1px solid #8b95a1; font-size:1.3rem; color:#8b95a1; font-weight:700}
+
+.sent-container {position:relative; min-height:100%; padding-top:6.5rem; padding-bottom:18rem}
+.sent-container.chat-insert {}
+.sent-container .car-owner-msg {opacity:0; margin:0 2rem; padding:1.3rem 2rem 1.3rem 2rem; background:#fefefe; border:1px solid #1cacf5; border-radius:0.4rem; line-height:2rem}
+.sent-container .car-owner-msg.animated {opacity:1; animation:bottomToTop 0.6s}
+.sent-container .car-owner-msg p {padding-left:3.2rem; background:url('../images/icon_bell.png') no-repeat 0 0.5rem; background-size:1.8rem auto; color:#232b37; font-size:1.4rem; line-height:2rem}
+.sent-container .chabbae-contact {opacity:0; margin-top:4rem}
+.sent-container .chabbae-contact.animated {opacity:1; animation:bottomToTop2 0.8s}
+.sent-container .chabbae-contact > ul {display:flex; align-items:center; justify-content:space-between; width:80%; height:6.4rem; margin:0 auto}
+.sent-container .chabbae-contact > ul > li {width:6.4rem; height:6.4rem}
+.sent-container .chabbae-contact > ul > li span {width:6.4rem; height:6.4rem; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:"SCD"; font-weight:600}
+.sent-container .chabbae-contact > ul > li.me span {background:#1cacf5}
+.sent-container .chabbae-contact > ul > li.owner span {background:#000}
+.sent-container .chabbae-contact > ul > li.bot {position:relative; width:calc(100% - 12.8rem); display:flex; align-items:center; justify-content:center}
+.sent-container .chabbae-contact > ul > li.bot::before {position:absolute; left:13%; top:50%; width:calc((100% - 6.4rem) / 6.5); min-width:2rem; height:0.2rem; transform:translate(0, -50%); background:url('../images/bg_line_01.png') repeat 50%; background-size:auto 0.2rem; content:''}
+.sent-container .chabbae-contact > ul > li.bot::after {position:absolute; right:13%; top:50%; width:calc((100% - 6.4rem) / 6.5); min-width:2rem; height:0.2rem; transform:translate(0, -50%); background:url('../images/bg_line_02.png') repeat 50%; background-size:auto 0.2rem; content:''}
+.sent-container .chabbae-contact > ul > li.bot span {display:block; width:6rem; height:100%; background:url('../images/icon_bot.png') no-repeat 50%; background-size:100% auto; font-size:0; text-indent:-9999rem}
+.sent-container .chabbae-contact > dl {width:80%; margin:3.2rem auto 0}
+.sent-container .chabbae-contact > dl dt {margin-bottom:0.8rem; text-align:center; font-size:2.1rem; color:#000; font-weight:800}
+.sent-container .chabbae-contact > dl dd {text-align:center; color:#232b37; font-size:1.6rem; font-weight:700}
+.sent-container .apt-look-around {display:none; margin:4rem 0 2rem 2rem; transition:all 1s 2s}
+.sent-container .apt-look-around h2 {margin-bottom:1rem; color:#232b37; font-size:2rem; font-weight:800}
+.sent-container .apt-look-around ul {height:43rem}
+.sent-container .apt-look-around ul li {width:24rem; margin-right:1rem}
+.sent-container .apt-look-around ul li dl {width:100%; height:43rem; cursor:pointer}
+.sent-container .apt-look-around ul li dl dt .pic {display:block; overflow:hidden; border-radius:0.4rem 0.4rem 0 0}
+.sent-container .apt-look-around ul li dl dt .pic img {width:100%}
+.sent-container .apt-look-around ul li dl dd {padding:1.5rem 1rem; background:#fff; border-width:0 1px 1px 1px; border-color:#e2e6e9; border-style:solid; border-radius:0 0 0.4rem 0.4rem}
+.sent-container .apt-look-around ul li dl dd > strong {display:block; font-size:1.6rem; font-weight:700; color:#232b37}
+.sent-container .apt-look-around ul li dl dd p {display:flex; align-items:flex-start; justify-content:space-between; width:100%; margin-top:0.6rem; white-space:normal}
+.sent-container .apt-look-around ul li dl dd p em {margin-right:1rem; color:#4e5968; font-size:1.3rem}
+.sent-container .apt-look-around ul li dl dd p span {color:#232b37; font-size:1.3rem; word-wrap:break-word; word-break:keep-all}
+.sent-container .msg-owner-complete {display:flex; align-items:center; justify-content:center; height:5.5rem; margin:3rem 2rem; background:#f2f2f5; border-radius:0.4rem}
+.sent-container .msg-owner-complete p {display:inline-block; height:2.4rem; padding:0 0 0 3rem; background:url('../images/icon_chat_smile.png') no-repeat 0 55%; background-size:2rem auto; color:#232b37; font-size:1.4rem; line-height:2.4rem}
+.sent-container .chabbae-sms-pr {width:65%; margin:0 auto}
+.sent-container .chabbae-sms-pr dl {width:100%; min-height:32rem; overflow:hidden; background-color:#fff; border:2px solid transparent; border-radius:1.2rem; background-image:linear-gradient(#fff, #fff), linear-gradient(to right, #1cacf5 0%,  #040039 100%); background-origin:border-box; background-clip: content-box, border-box; box-shadow: 0 0.6rem 0.8rem rgba(0, 0, 0, 0.16), 0 1.6rem 2rem rgba(0, 0, 0, 0.16)}
+.sent-container .chabbae-sms-pr dl dt {padding:13.5rem 2rem 0 2rem; text-align:center; background:url('../images/icon_bot.png') no-repeat 50% 4rem; background-size:8rem auto}
+.sent-container .chabbae-sms-pr dl dt em {display:inline-block; min-width:6rem; height:2.4rem; padding:0 0.8rem; background:#000; border-radius:1.2rem; color:#fff; font-size:1.3rem; line-height:2.4rem}
+.sent-container .chabbae-sms-pr dl dt strong {display:block; margin-top:1rem; font-size:2rem; line-height:2.5rem; font-weight:800; background:linear-gradient(to right, #1baaf5, #075eec); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.sent-container .chabbae-sms-pr dl dt span {display:block; margin-top:0.5rem; color:#000; font-size:2rem; font-weight:800; line-height:2.8rem}
+.sent-container .chabbae-sms-pr dl dd {margin-top:2rem; padding-bottom:4rem}
+.sent-container .chabbae-sms-pr dl dd p {text-align:center; color:#4e5968; font-size:1.4rem}
+.sent-container .chabbae-sms-pr button {width:100%; height:5.5rem; background:#000; border-radius:1.2rem; box-shadow: 0 0.6rem 0.8rem rgba(0, 0, 0, 0.16), 0 1.6rem 2rem rgba(0, 0, 0, 0.16); color:#fff; font-size:1.6rem}
+
+#chat-ui-div {display:none; width:100%}
+.ui-widget {display:none}
+.ui-chatbox {display:none; width:100%; height:0}
+/* .ui-chatbox-log {height:52rem}
+.chat {height:622px} */
+.ui-chatbox input, .ui-chatbox select, .ui-chatbox textarea, .ui-chatbox button {font-family:Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; font-size:1em}
+.ui-chatbox-icon {display:none}
+.ui-chatbox .ui-widget-header {display:none}
+.ui-corner-top {}
+.ui-chatbox {position:relative; width:100%; height:0; animation:height 0.6s}
+.ui-chatbox.start {min-height:48rem}
+.ui-chatbox.start #chat-ui-div {display:block}
+.ui-chatbox-titlebar {display:none}
+.ui-chatbox-content {padding:0; margin:0; border:0}
+.ui-chatbox-log {padding:0; height:22rem; overflow-y:auto; overflow-x:hidden}
+.ui-chatbox-input-focus {border-color:#ddd !important}
+.ui-chatbox-icon {float:right}
+.ui-chatbox-input-focus {border-color:#888}
+.ui-chatbox-msg {float:left; clear:both; margin-top:1rem; white-space:pre-wrap; white-space:-moz-pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word; font-size:1.4rem}
+.ui-chatbox-msg .alert-notice {width:calc(100% - 4rem); margin:0 auto; padding:2rem 5rem; text-align:center; background:#f2f2f5; border-radius:0.4rem; color:#232b37; font-size:1.5rem}
+.ui-chatbox-msg.me {float:right; margin:1rem 1rem 3rem 3rem; padding:0; text-align:right; margin-right:1rem; color:#232b37; font-size:2.2rem; font-weight:800}
+.ui-chatbox-msg.me strong {font-weight:800; word-spacing:-0.05rem}
+.ui-chatbox-msg.me strong::before {content:'" '; font-family:'SCD'; font-weight:600}
+.ui-chatbox-msg.me strong::after {content:' "'; font-family:'SCD'; font-weight:600}
+.ui-chatbox-msg span {display:block; float:none; overflow:hidden; text-align:left}
+.ui-chatbox-msg .pic {float:right; width:4.8rem; height:4.8rem; margin:0; background:#efefef; border-radius:50%; font-size:0}
+.ui-chatbox-msg .pic img {display:block; width:100%; height:100%}
+.ui-chatbox-msg b {float:left}
+.ui-chatbox-log {width:100%; padding:0}
+.ui-chatbox-msg {width:100%}
+.ui-chatbox-content {width:100%}
+.ui-chatbox-input {display:none; position:relative; width:100%; height:9.2rem; padding:0; margin:0; background:#fff; border-top:1px solid #e2e6e9; border-radius:0 !important}
+.ui-chatbox-input::before {position:absolute; right:2rem; top:0.5rem; width:calc(100% - 7rem); height:3.6rem; background:#f2f2f5; border-radius:1.8rem; content:''}
+.ui-chatbox-input textarea {width:100%; height:100%; border:0; resize:none}
+.ui-chatbox-input .btn-enter {position:absolute; right:2.5rem; top:1.15rem; width:2.4rem; height:2.4rem; background:url('../images/icon_enter.png') 50%; background-size:100% auto; font-size:0; text-indent:-99999rem}
+
+
+.chat-bottom {position:fixed; left:0; bottom:-65rem; z-index:40; width:100%; height:50rem}
+.chat-bottom .transparents-layer {z-index:39; top:0; left:0; position:fixed; width:100%; min-height:100%; background:rgba(0,0,0,0.3)}
+.chat-bottom.animated {bottom:-40.5rem; animation:bottomToTop 0.6s}
+.chat-bottom.dOpen .direct-msg {visibility:visible}
+.chat-bottom.dOpen .direct-msg.open h2 + p {opacity:1}
+.chat-bottom.dOpen .direct-msg.open .btn-msg-toggle {color:#8b95a1}
+.chat-bottom.dOpen .direct-msg.open .btn-msg-toggle::after {background:url('../images/icon_arr_02.png') no-repeat 100% 50%; background-size:100% auto}
+
+
+.chat-bottom .ars-calling {position:absolute; left:2rem; bottom:43.5rem; z-index:41; width:calc(100% - 4rem); height:4.8rem; display:flex; align-items:center; justify-content:space-between; padding:0; background:rgba(0,0,0,0.6); border-radius:0.4rem}
+.chat-bottom .ars-calling ul.calling-msg {width:100%; height:1.7rem; overflow:hidden}
+.chat-bottom .ars-calling ul.calling-msg li {display:none; width:100%; align-items:center; justify-content:space-between; color:#fff; font-size:1.4rem; letter-spacing:0.04rem}
+.chat-bottom .ars-calling ul.calling-msg li:first-child {display:flex}
+.chat-bottom .ars-calling ul.calling-msg li span {padding:0 0 0 2.3rem; margin-left:2rem; background:url('../images/icon_calling.png') no-repeat 0 50%; background-size:1.65rem auto; line-height:1.7rem}
+.chat-bottom .ars-calling ul.calling-msg li.recall span {background:url('../images/icon_call.png') no-repeat 0 50%; background-size:1.65rem auto;}
+.chat-bottom .ars-calling ul.calling-msg li p {line-height:1.7rem}
+.chat-bottom .ars-calling ul.calling-msg li p a {display:inline-block; position:relative; padding:0 1.3rem; color:#30c0ff; font-size:1.4rem; line-height:1.7rem}
+.chat-bottom .ars-calling ul.calling-msg li p a:first-child::after {position:absolute; right:0; top:50%; width:0.1rem; height:1.2rem; margin-top:-0.5rem; background:rgba(255,255,255,0.2); content:''}
+.chat-bottom .ars-calling ul.calling-msg li em {margin-right:2rem; color:#fff; font-size:1.3rem; letter-spacing:0.04rem}
+
+.chat-bottom .direct-msg {visibility:hidden; position:absolute; left:0; bottom:0; z-index:42; width:100%; padding:2rem 0 4rem 0; background:#fff; border-radius:1.2rem 1.2rem 0 0; box-shadow: 0 -0.8rem 1.2rem rgba(0, 0, 0, 0.08)}
+.chat-bottom .direct-msg h2 {display:flex; align-items:center; justify-content:space-between; padding:0 2rem}
+.chat-bottom .direct-msg h2 strong {color:#232b37; font-size:2rem; font-weight:800}
+.chat-bottom .direct-msg h2 .btn-msg-toggle {position:relative; padding-right:2rem; font-weight:700; color:#0559eb; font-size:1.5rem}
+.chat-bottom .direct-msg h2 .btn-msg-toggle::after {position:absolute; right:0; top:50%; width:1.2rem; height:0.8rem; margin-top:-0.4rem; background:url('../images/icon_arr_01.png') no-repeat 100% 50%; background-size:100% auto; transition:transform 0.5s; content:''}
+.chat-bottom .direct-msg h2 + p {opacity:0; margin-top:2rem; padding-left:2rem; color:#4e5968; font-size:1.6rem; font-weight:700}
+.chat-bottom .direct-msg .tslide {margin-top:2rem; margin-left:0}
+.chat-bottom .direct-msg .tslide > ul > li {width:24rem; height:26rem; margin-right:1.6rem; align-items:flex-start; padding:2.4rem 2.4rem 0 2.4rem; background:#f9fafc; border-radius:0.8rem; flex-direction:column}
+.chat-bottom .direct-msg .tslide > ul > li:first-child {margin-left:2rem}
+.chat-bottom .direct-msg .tslide > ul > li.direct-insert .btnset button {border-radius:2rem}
+.chat-bottom .direct-msg .tslide > ul > li h3 {display:block; text-align:left; color:#232b37; font-size:2rem; font-weight:800}
+.chat-bottom .direct-msg .tslide > ul > li .btnset {display:flex; align-items:center; justify-content:center; flex-direction:column; width:100%; margin-top:2rem}
+.chat-bottom .direct-msg .tslide > ul > li .btnset button {width:100%; height:4rem; margin-top:0.8rem; background:#fff; border:1px solid #d2d8dd; border-radius:0.4rem; color:#4e5968; font-weight:700; font-size:1.6rem}
+.chat-bottom .direct-msg .tslide > ul > li .btnset button:first-child {margin-top:0; border:1px solid #0559eb; color:#0559eb}
+.chat-bottom .direct-msg .tslide > ul > li .txt-msg {margin-top:2rem; white-space:normal; color:#4e5968; font-size:1.4rem; font-weight:700}
+.chat-bottom .direct-msg .tslide > ul > li > ul {width:100%; margin-top:0.5rem}
+.chat-bottom .direct-msg .tslide > ul > li > ul > li {border-top:1px solid #f3f3f6}
+.chat-bottom .direct-msg .tslide > ul > li > ul > li:first-child {border-top:0}
+.chat-bottom .direct-msg .tslide > ul > li > ul > li > a {display:block; padding:1.3rem 0; background:url('../images/icon_arr_03.png') no-repeat 100% 50%; background-size:1.4rem auto; color:#4e5968; font-size:1.5rem}
+
+/* chabbae-start */
+.chabbae-start {position:absolute; left:0; top:50%; transform:translateY(-55%); width:100%; height:auto; padding:0 2rem}
+.chabbae-start h2 {margin:0 0 2rem 0; text-align:center}
+.chabbae-start h2 strong {color:#000; font-size:2.4rem; line-height:3rem; font-weight:800}
+.chabbae-start .qr-slider {padding:0 1rem; margin:0 0 5rem 0; border-radius:0.8rem; overflow:hidden}
+.chabbae-start .qr-slider ul.slick-slider {border-radius:0.8rem; overflow:hidden}
+.chabbae-start .qr-slider ul.slick-slider li {border-radius:0.8rem; overflow:hidden}
+.chabbae-start .qr-slider ul.slick-slider li img {width:100%; border-radius:0.8rem}
+.chabbae-start .qr-slider ul.slick-dots {width:100%; height:0.8rem; display:flex; align-items:center; justify-content:center; margin-top:2rem}
+.chabbae-start .qr-slider ul.slick-dots li {width:0.8rem; height:100%; margin:0 0.4rem; display:flex; align-items:center; justify-content:center}
+.chabbae-start .qr-slider ul.slick-dots li button {width:0.8rem; height:0.8rem; background:#d2d8dd; border-radius:50%; font-size:0; text-indent:-99999rem}
+.chabbae-start .qr-slider ul.slick-dots li.slick-active button {background:#000}
+.chabbae-start .btnset-login {padding:0}
+.chabbae-start .btnset-login .btnset {display:block; width:100%}
+.chabbae-start .btnset-login .btnset button {display:block; width:100%; margin-top:0.8rem}
+.chabbae-start .btnset-login .btnset button:first-child {margin-top:0}
+.chabbae-start .btnset-login > p {margin-top:2rem; text-align:center}
+.chabbae-start .btnset-login > p span {margin-right:0.6rem; color:#4e5968; font-size:1.6rem}
+.chabbae-start .btnset-login > p a {text-decoration:underline; color:#000; font-size:1.6rem; font-weight:700}
+
+
+ul.formgroup li {position:relative; min-height:5.5rem; margin:1rem 0 0 0}
+ul.formgroup li.focusIn > label.input-over {top:0.5rem; font-size:1.3rem}
+ul.formgroup li.focusIn > div p.inpbox {border-bottom:2px solid #222}
+ul.formgroup li.focusIn > div p.inpbox.delete input {width:calc(100% - 3rem)}
+ul.formgroup li.focusIn > div p.inpbox.delete .btn-delete {display:block}
+ul.formgroup li > label.input-over {position:absolute; left:0; top:2rem; z-index:20; font-size:2rem; color:#afb7bf; font-weight:200; transition:all 0.35s}
+ul.formgroup li > div {padding-top:2rem}
+ul.formgroup li > div p.inpbox {position:relative; z-index:21; width:100%; height:3.5rem; border-bottom:1px solid #f2f2f5}
+ul.formgroup li > div p.inpbox input {width:100%; height:100%; background:transparent; color:#232b37; font-size:2rem}
+ul.formgroup li > div p.inpbox.delete .btn-delete {display:none; position:absolute; right:0; top:0.2rem; width:2.2rem; height:2.2rem; background:url('../images/icon_delete.png') no-repeat 50%; background-size:100% auto; border-radius:50%; font-size:0; text-indent:-99999rem}
+ul.formgroup li > div .msg-error {display:block; padding-top:1rem; color:#ff3333; font-size:1.4rem; font-weight:700}
+ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
+
+
+.regist-container {padding:4rem 2rem 0 2rem}
+.regist-container fieldset .chk {display:block; margin-top:2rem}
+.regist-container fieldset .chk label {color:#232b37; font-size:1.6rem}
+.regist-container fieldset .btn-black {width:100%; margin-top:4rem}
+
+.member-container {padding:4rem 2rem 0 2rem}
+.member-container h2 {margin:2rem 0; text-align:left}
+.member-container h2 strong {color:#000; font-size:2.4rem; line-height:3rem; font-weight:800}
+.member-container fieldset .btn-black {width:100%; margin-top:4rem}
+
+.my_qrcode_setting {position:relative; width:100%; height:100%; padding:4rem 2rem 0 2rem; background:url('../images/bg_myqr.jpg') no-repeat 100% 100%; background-size:cover}
+.my_qrcode_setting h2 {margin:0 0 3.5rem 0; text-align:center}
+.my_qrcode_setting h2 strong {color:#fff; font-size:2.4rem; line-height:3rem; font-weight:800}
+.my_qrcode_setting .qrcode-show {position:absolute; left:0; top:40%; transform:translateY(-50%); width:100%; padding:0 5.5rem; border-radius:0.8rem}
+.my_qrcode_setting .qrcode-show ul.slick-slider {width:100%; height:100%; border-radius:0.8rem; overflow:hidden}
+.my_qrcode_setting .qrcode-show ul.slick-slider li {position:relative; width:100%; height:100%; border-radius:0.8rem; overflow:hidden}
+.my_qrcode_setting .bg-qr-img {position:relative; z-index:20; width:100%; border-radius:0.8rem; overflow:hidden}
+.my_qrcode_setting .bg-qr-img img {width:100%}
+.my_qrcode_setting .my-qrcode {position:absolute; left:0; top:0; z-index:21; width:100%; height:100%}
+.my_qrcode_setting .my-qrcode .qr-img {position:absolute; left:50%; top:15%; width:14.4rem; height:14.4rem; margin-left:-7.2rem; font-size:0}
+.my_qrcode_setting .my-qrcode .qr-img img {width:100%}
+.my_qrcode_setting .my-qrcode .car-number {position:absolute; left:6%; top:4%; color:#d2d8dd; font-size:1.6rem; font-weight:700}
+.my_qrcode_setting .my-qrcode .btn-setting {position:absolute; right:5%; top:4%; width:2.4rem; height:2.4rem; background:url('../images/icon_setting.png') no-repeat 50%; background-size:1.8rem auto; font-size:0; text-indent:-99999rem}
+.my_qrcode_setting .my-qrcode .txt {position:absolute; left:5%; bottom:35%; width:90%; text-align:center; color:#a4aab0; font-size:1.4rem}
+.my_qrcode_setting .btn-bottom-fixed {position:fixed; left:0; bottom:0; width:100%; height:8.6rem; padding:0 2rem}
+.my_qrcode_setting .btn-bottom-fixed .btnset {display:flex; align-items:center; justify-content:space-between; width:100%; height:5.5rem}
+.my_qrcode_setting .btn-bottom-fixed .btnset button {width:calc((100% - 1rem) / 2); margin-left:1rem}
+.my_qrcode_setting .btn-bottom-fixed .btnset button:first-child {margin-left:0}
+
+.chatting-container {padding-top:8rem}
+.chatting-container .chatting-list {margin:0 2rem}
+.chatting-container .chatting-list > ul {width:100%}
+.chatting-container .chatting-list > ul > li {position:relative; height:8.5rem; padding-top:4.5rem; border-bottom:1px solid #e5e9ec}
+.chatting-container .chatting-list > ul > li:first-child > .date {color:#37b5f6}
+.chatting-container .chatting-list > ul > li > strong {position:absolute; left:0; top:1.5rem; font-size:1.5rem; font-weight:800; color:#000}
+.chatting-container .chatting-list > ul > li > .date {position:absolute; right:0; top:1.7rem; color:#b8bfc7; font-size:1.4rem}
+.chatting-container .chatting-list > ul > li > p {color:#8b95a1; font-size:1.8rem}
+
+
+
+
+/* meda query */
+@media screen and (min-width:768px) and (max-width:1280px) {
+	body {overflow-x:hidden}
+	
+}
+
+@media screen and (max-width:767px) {	
+	
+}
+
+@media screen and (max-width:600px) {	
+}
+
+
+@media (max-width:375px) {	
+	.chabbae-start {position:absolute; left:0; top:50%; transform:translateY(-50%); width:100%; height:auto; padding:0 2rem}
+
+	.my_qrcode_setting {padding:3rem 2rem 0 2rem}
+	.my_qrcode_setting h2 {margin:0 0 2.5rem 0}
+	.my_qrcode_setting .btn-bottom-fixed {height:7.8rem}
+}

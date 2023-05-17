@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+<meta name="description" content="차좀빼주세요">
+<meta name="keywords" content="차좀빼주세요">
+<title>차좀빼주세요</title>
+<link rel="icon" type="image/png" href="../../resources/images/favicon.png">
+<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+<script src="../../resources/js/jquery-1.11.2.min.js"></script>
+<script src="../../resources/js/jquery_ui.js"></script>
+<script src="../../resources/js/slick.js"></script>
+</head>
+
+<body>
+
+<div id="wrap">
+	<div class="my_qrcode_setting">
+		<div class="qrcode-show">
+			<h2><strong>나의 안심QR코드</strong></h2>
+			<ul>
+				<li>
+					<p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
+					<div class="my-qrcode">
+						<strong class="car-number">12가 5555</strong>
+						<button type="button" class="btn-setting">설정</button>
+						<p class="qr-img"><img src="../../resources/images/temp_qrcode.png" alt=""></p>
+						<span class="txt">QR코드를 스캔하면 <br>차주에게 자동알림이 갑니다.</span>
+					</div>
+				</li>
+				<li>
+					<p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
+					<div class="my-qrcode">
+						<strong class="car-number">231가 5987</strong>
+						<button type="button" class="btn-setting">설정</button>
+						<p class="qr-img"><img src="../../resources/images/temp_qrcode.png" alt=""></p>
+						<span class="txt">QR코드를 스캔하면 <br>차주에게 자동알림이 갑니다.</span>
+					</div>
+				</li>
+				<li>
+					<div class="my-qrcode">
+						<button type="button" class="btn-qr-ad">QR 추가 생성</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="btn-bottom-fixed">
+			<span class="btnset">
+				<button type="button" class="btn-white">빠른 응답 설정</button>
+				<button type="button" class="btn-white" onclick="location.href='chatting_list.html'">채팅 목록</button>
+			</span>
+			<div class="direct-msg-setting" style="display:none">
+				<h2><strong>빠른 응답 설정</strong><button type="button" class="btn-msg-toggle">닫기</button></h2>
+				<p>QR 공통으로 적용되는 빠른 응답 문구 입니다.</p>
+				<div class="item-setting-form">
+					<p><span class="inpbox"><input type="text" value="기어 내려놨으니 밀어서 나가셔도 돼요"></span></p>
+					<p><span class="inpbox"><input type="text" value="주차관리인이 빼줄거예요"></span><button type="button">-</button></p>
+					<button type="button" class="btn-white">항목추가</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- S: modalpop -->
+	<div class="modalpop">
+		
+		<!-- S: pop-qrview -->
+		<div class="popupwrap pop-qrview">
+			<button type="button" class="btn-popclose" onclick="front.modalHide('pop-qrview')" title="닫기">닫기</button>
+			<button type="button" class="btn-download">닫기</button>
+			<h1 class="hide">나의 안심QR코드 보기</h1>
+			<div class="popcontents">
+				<div class="my-qrcode">
+					<strong class="car-number">12가 5555</strong>
+					<button type="button" class="btn-setting">설정</button>
+					<p class="qr-img"></p>
+					<span class="txt">QR코드를 스캔하면 차주에게 자동알림이 갑니다.</span>
+					<span class="apt-logo"></span>
+				</div>				
+				<span class="btnset">
+					<button type="button" class="btn-white">실물 구입하기</button>
+				</span>
+
+				<div class="qrcode-alert">안심QR코드 이미지를 갤러리에 저장했습니다.</div>
+			</div>
+		</div>
+		<!-- //E: pop-qrview -->
+
+	</div>
+	<!-- //E: modalpop -->
+
+</div>
+
+<script src="../../resources/js/front_ui.js"></script>
+<script>
+$(".qrcode-show > ul").slick({
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	arrows: false,
+	dots: false,
+	focusOnSelect: true,
+	touchMove: true,
+	swipe: true
+});
+</script>
+
+</body>
+</html>

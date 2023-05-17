@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+<meta name="description" content="차좀빼주세요">
+<meta name="keywords" content="차좀빼주세요">
+<title>차좀빼주세요</title>
+<link rel="icon" type="image/png" href="../../resources/images/favicon.png">
+<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+<script src="../../resources/js/jquery-1.11.2.min.js"></script>
+<script src="../../resources/js/jquery_ui.js"></script>
+<script src="../../resources/js/slick.js"></script>
+</head>
+
+<body>
+
+<div id="wrap">
+	<div class="chabbae-start">
+		<h2><strong>안심QR코드로 <br>개인정보를 보호하세요</strong></h2>
+		<div class="qr-slider">
+			<ul>
+				<li><img src="../../resources/images/img_startqr_01.jpg" alt="QR코드를 스캔하면 차주에게 자동알림이 갑니다."></li>
+				<li><img src="../../resources/images/img_startqr_02.jpg" alt="QR코드를 스캔하면 차주에게 자동알림이 갑니다."></li>
+			</ul>
+		</div>
+		<div class="btnset-login">
+			<span class="btnset">
+				<button type="button" class="btn-black">카카오로 시작하기</button>
+				<button type="button" class="btn-white" onclick="location.href='memberjoin_01.html'">회원가입</button>
+			</span>
+			<p><span>이미 사용중이신가요?</span><a href="login.html">로그인</a></p>
+		</div>
+	</div>
+</div>
+
+<script src="../../resources/js/front_ui.js"></script>
+<script>
+$(".qr-slider > ul").slick({
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	arrows: false,
+	dots: true,
+	autoplay: true,
+	autoplaySpeed:5000,
+	focusOnSelect: true,
+	touchMove: true,
+	swipe: true
+});
+</script>
+</body>
+</html>

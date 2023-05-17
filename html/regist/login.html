@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+<meta name="description" content="차좀빼주세요">
+<meta name="keywords" content="차좀빼주세요">
+<title>차좀빼주세요</title>
+<link rel="icon" type="image/png" href="../../resources/images/favicon.png">
+<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+<script src="../../resources/js/jquery-1.11.2.min.js"></script>
+<script src="../../resources/js/jquery_ui.js"></script>
+</head>
+
+<body>
+
+<div id="wrap">
+	<header class="regist-header">
+		<button type="button" class="btn-prev" onclick="history.go(-1)">이전</button>
+		<h1><strong>로그인</strong></h1>
+	</header>
+	<div class="regist-container">
+		<fieldset>
+			<ul class="formgroup">
+				<li>
+					<label class="input-over">이름</label>
+					<div><p class="inpbox"><input type="text"></p></div>
+				</li>
+				<li> <!-- 에러일 경우 error 클래스 추가 -->
+					<label class="input-over">휴대폰번호</label>
+					<div>
+						<p class="inpbox"><input type="text"></p>
+						<span class="msg-error" style="display:none">이름 혹은 휴대폰번호가 일치하지 않습니다.</span>
+					</div>
+				</li>
+			</ul>
+			<span class="chk"><input type="checkbox" id="autologin" checked><label for="autologin">자동 로그인</label></span>
+			<button type="button" class="btn-black" onclick="location.href='my_qrcode.html'">로그인</button>
+		</fieldset>
+	</div>
+</div>
+
+<script src="../../resources/js/front_ui.js"></script>
+</body>
+</html>
