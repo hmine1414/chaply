@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
 <script src="../../resources/js/jquery-1.11.2.min.js"></script>
 <script src="../../resources/js/jquery_ui.js"></script>
-<script src="../../resources/js/slick.js"></script>
+<script src="../../resources/js/jquery.rotateSlider.js"></script>
 </head>
 
 <body>
@@ -25,8 +25,20 @@
 	<div class="my_qrcode_setting">
 		<div class="qrcode-show">
 			<h2><strong>나의 안심QR코드</strong></h2>
-			<ul>
-				<li>
+
+			
+		  <!-- ul class="rotate-qr-slider">
+			<div class="rotateslider-item"><img src="https://unsplash.it/211/311?image=657"></div>
+			<div class="rotateslider-item"><img src="https://unsplash.it/211/311?image=658"></div>
+			<div class="rotateslider-item"><img src="https://unsplash.it/211/311?image=659"></div>
+			<div class="rotateslider-item"><img src="https://unsplash.it/211/311?image=660"></div>
+			<div class="rotateslider-item"><img src="https://unsplash.it/211/311?image=661"></div>
+			<span class="arrow right js-rotateslider-arrow" data-action="next"><i class="fa fa-angle-right fa-3x"></i></span>
+			<span class="arrow left js-rotateslider-arrow" data-action="prev"><i class="fa fa-angle-left fa-3x"></i></span>
+		  </ul -->
+
+			<ul class="rotate-qr-slider">
+				<li class="rotateslider-item">
 					<p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
 					<div class="my-qrcode">
 						<strong class="car-number">12가 5555</strong>
@@ -35,7 +47,7 @@
 						<span class="txt">QR코드를 스캔하면 <br>차주에게 자동알림이 갑니다.</span>
 					</div>
 				</li>
-				<li>
+				<li class="rotateslider-item">
 					<p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
 					<div class="my-qrcode">
 						<strong class="car-number">231가 5987</strong>
@@ -44,7 +56,8 @@
 						<span class="txt">QR코드를 스캔하면 <br>차주에게 자동알림이 갑니다.</span>
 					</div>
 				</li>
-				<li>
+				<li class="rotateslider-item">
+					<p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
 					<div class="my-qrcode">
 						<button type="button" class="btn-qr-ad">QR 추가 생성</button>
 					</div>
@@ -100,15 +113,9 @@
 
 <script src="../../resources/js/front_ui.js"></script>
 <script>
-$(".qrcode-show > ul").slick({
-	slidesToShow: 1,
-	slidesToScroll: 1,
-	arrows: false,
-	dots: false,
-	focusOnSelect: true,
-	touchMove: true,
-	swipe: true
-});
+  $('.rotate-qr-slider').rotateSlider({
+
+  });
 </script>
 
 </body>
