@@ -275,6 +275,7 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 
 @media (max-width:375px) {	
 	.chabbae-start {position:absolute; left:0; top:2rem; transform:translateY(0); width:100%; height:auto; padding:0 2rem}
+	.chabbae-start .btnset-login {padding-bottom:2rem}
 
 	.my_qrcode_setting {padding:3rem 0 0 0}
 	.my_qrcode_setting h2 {margin:0 0 2.5rem 0}
