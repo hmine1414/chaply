@@ -14,9 +14,9 @@
 <title>차좀빼주세요</title>
 <link rel="icon" type="image/png" href="../../resources/images/favicon.png">
 <link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+<link rel="stylesheet" type="text/css" href="../../resources/css/swiper.css">
 <script src="../../resources/js/jquery-1.11.2.min.js"></script>
 <script src="../../resources/js/jquery_ui.js"></script>
-<script src="../../resources/js/jquery.rotateSlider.js"></script>
 </head>
 
 <body>
@@ -27,42 +27,52 @@
 			<h2><strong>나의 안심QR코드</strong></h2>
 
 			
-		  <!-- ul class="rotate-qr-slider">
-			<div class="rotateslider-item"><img src="https://unsplash.it/211/311?image=657"></div>
-			<div class="rotateslider-item"><img src="https://unsplash.it/211/311?image=658"></div>
-			<div class="rotateslider-item"><img src="https://unsplash.it/211/311?image=659"></div>
-			<div class="rotateslider-item"><img src="https://unsplash.it/211/311?image=660"></div>
-			<div class="rotateslider-item"><img src="https://unsplash.it/211/311?image=661"></div>
-			<span class="arrow right js-rotateslider-arrow" data-action="next"><i class="fa fa-angle-right fa-3x"></i></span>
-			<span class="arrow left js-rotateslider-arrow" data-action="prev"><i class="fa fa-angle-left fa-3x"></i></span>
-		  </ul -->
+		  <div class="swiper mySwiper">
+			<div class="swiper-wrapper">
+			  <div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+			  </div>
+			  <div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+			  </div>
+			  <div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+			  </div>
+			  <div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+			  </div>
+			  <div class="swiper-slide">
+				<img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+			  </div>
+			</div>
+		  </div>
 
-			<ul class="rotate-qr-slider">
-				<li class="rotateslider-item">
-					<p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
+			<div style="display:none">
+				<div>
+					<!-- p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
 					<div class="my-qrcode">
 						<strong class="car-number">12가 5555</strong>
 						<button type="button" class="btn-setting">설정</button>
 						<p class="qr-img"><img src="../../resources/images/temp_qrcode.png" alt=""></p>
 						<span class="txt">QR코드를 스캔하면 <br>차주에게 자동알림이 갑니다.</span>
-					</div>
-				</li>
-				<li class="rotateslider-item">
-					<p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
+					</div -->
+				</div>
+				<div>
+					<!-- p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
 					<div class="my-qrcode">
 						<strong class="car-number">231가 5987</strong>
 						<button type="button" class="btn-setting">설정</button>
 						<p class="qr-img"><img src="../../resources/images/temp_qrcode.png" alt=""></p>
 						<span class="txt">QR코드를 스캔하면 <br>차주에게 자동알림이 갑니다.</span>
-					</div>
-				</li>
-				<li class="rotateslider-item">
-					<p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
+					</div -->
+				</div>
+				<div>
+					<!-- p class="bg-qr-img"><img src="../../resources/images/bg_qrcard_gr.png" alt=""></p>
 					<div class="my-qrcode">
 						<button type="button" class="btn-qr-ad">QR 추가 생성</button>
-					</div>
-				</li>
-			</ul>
+					</div -->
+				</div>
+			</div>
 		</div>
 		<div class="btn-bottom-fixed">
 			<span class="btnset">
@@ -83,7 +93,6 @@
 
 	<!-- S: modalpop -->
 	<div class="modalpop">
-		
 		<!-- S: pop-qrview -->
 		<div class="popupwrap pop-qrview">
 			<button type="button" class="btn-popclose" onclick="front.modalHide('pop-qrview')" title="닫기">닫기</button>
@@ -100,22 +109,36 @@
 				<span class="btnset">
 					<button type="button" class="btn-white">실물 구입하기</button>
 				</span>
-
 				<div class="qrcode-alert">안심QR코드 이미지를 갤러리에 저장했습니다.</div>
 			</div>
 		</div>
 		<!-- //E: pop-qrview -->
-
 	</div>
 	<!-- //E: modalpop -->
 
 </div>
 
 <script src="../../resources/js/front_ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
-  $('.rotate-qr-slider').rotateSlider({
-
-  });
+var swiper = new Swiper(".mySwiper", {
+	slidesPerView: 3,
+	centeredSlides: true,
+	spaceBetween: 30,
+	loop:true,
+	loopedSlides:1,
+	effect: "coverflow",
+	grabCursor: true,
+	centeredSlides: true,
+	slidesPerView: "auto",
+	coverflowEffect: {
+		rotate: 0,
+		stretch: 50,
+		depth: 100,
+		modifier: 1,
+		slideShadows: true,
+	}
+});
 </script>
 
 </body>

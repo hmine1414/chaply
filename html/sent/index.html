@@ -369,6 +369,18 @@ function chatCall(clickMsg){
 		}
 	});
 }
+
+function chatInsert(){	
+	$(".chat-bottom").animate({bottom:"-65rem"}, 500, function(){
+		$(this).removeClass("dOpen animated");
+		$(".direct-msg").removeClass("open");
+		$("ul.calling-msg").hide();
+		$("ul.calling-msg li").hide();
+		$(".ui-chatbox-input").show();
+		clearTimeout();
+	});
+}
+
 </script>
 </body>
 </html>

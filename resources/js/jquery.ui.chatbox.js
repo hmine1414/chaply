@@ -157,11 +157,17 @@
                 .addClass('ui-chatbox-input')
                 .click(function(event) {
                     // anything?
-                })
+                })			
                 .appendTo(uiChatboxContent),
+			uiChatInner = (self.uiChatboxInput = $('<div></div>'))
+                .addClass('ui-chatbox-input-box-inner')
+                .appendTo(uiChatboxInput)			
+			uiChatToggle = (self.uiChatboxInput = $('<button type=button>등록</button>'))
+                .addClass('btn-toggle')
+                .appendTo(uiChatInner)
             uiChatboxInputBox = (self.uiChatboxInputBox = $('<textarea></textarea>'))
                 .addClass('ui-chatbox-input-box')
-                .appendTo(uiChatboxInput)
+                .appendTo(uiChatInner)
                 .keydown(function(event) {
                     if (event.keyCode && event.keyCode == $.ui.keyCode.ENTER) {
                         msg = $.trim($(this).val());
@@ -183,10 +189,9 @@
                     uiChatboxInputBox.removeClass('ui-chatbox-input-focus')
 				
 				}),
-				
-			uiChatboxBtn = (self.uiChatboxInput = $('<button type=button>등록</button>'))
+			uiChatboxBtn = (self.uiChatInner = $('<button type=button>등록</button>'))
                 .addClass('ui-widget-chat-button btn-enter')
-                .appendTo(uiChatboxInput)
+                .appendTo(uiChatInner)
 
             // disable selection
             uiChatboxTitlebar.find('*').add(uiChatboxTitlebar).disableSelection();
@@ -226,7 +231,6 @@
             this.uiChatboxTitlebar.width(width + "px");
             this.uiChatboxLog.width(width + "px");
             this.uiChatboxInput.css("maxWidth", width + "px");
-            this.uiChatboxInputBox.css("width", "calc(100% - 50px)").css("float","left");
         },
         _position: function(offset) {
             this.uiChatbox.css("right", offset);
