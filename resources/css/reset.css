@@ -60,6 +60,7 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .txtcenter {text-align:center !important}
 .txtleft {text-align:left !important}
 .hide {visibility:hidden; font-size:0; line-height:0; font-size:0; text-indent:-99999px}
+body.bg-dark {background:#010101}
 
 .tslide {position:relative; overflow-x:auto; overflow-y:hidden; white-space:nowrap}
 .tslide::-webkit-scrollbar {height:5px}
@@ -101,7 +102,7 @@ input[type="checkbox"]:checked + label:after {content:''; width:1.8rem; height:1
 
 
 /* layout */
-#wrap {width:100%; max-width:128rem; height:100vh; margin:0 auto; opacity:0}
+#wrap {width:100%; max-width:128rem; min-height:100vh; margin:0 auto; opacity:0}
 
 
 /* popup */

@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 /* contents */
-.splash-logo {width:100%; height:100vh; display:flex; align-items:center; justify-content:center; cursor:pointer}
+body#splash {overflow:hidden}
+.splash-logo {width:100%; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; cursor:pointer}
 .splash-logo h1 {font-size:3.6rem; color:#111; font-family:'SCD'; font-weight:700}
 
 
@@ -199,7 +200,7 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 .my_qrcode_setting .my-qrcode .btn-setting {position:absolute; right:5%; top:4%; width:2.4rem; height:2.4rem; background:url('../images/icon_setting.png') no-repeat 50%; background-size:1.8rem auto; font-size:0; text-indent:-99999rem}
 .my_qrcode_setting .my-qrcode .txt {position:absolute; left:5%; bottom:35%; width:90%; text-align:center; color:#a4aab0; font-size:1.4rem}
 .my_qrcode_setting .my-qrcode .btn-qr-ad {position:absolute; left:50%; top:15%; width:14.4rem; height:14.4rem; margin-left:-7.2rem; background:url('../images/bg_qr_regist.png') no-repeat 50%; background-size:100% auto; text-indent:-99999rem; font-size:0; }
-.my_qrcode_setting .btn-bottom-fixed {position:absolute; left:0; bottom:0; width:100%; height:8.6rem; padding:0 2rem}
+.my_qrcode_setting .btn-bottom-fixed {width:100%; height:8.6rem; padding:0 2rem}
 .my_qrcode_setting .btn-bottom-fixed .btnset {display:flex; align-items:center; justify-content:space-between; width:100%; height:5.5rem}
 .my_qrcode_setting .btn-bottom-fixed .btnset button {width:calc((100% - 1rem) / 2); margin-left:1rem}
 .my_qrcode_setting .btn-bottom-fixed .btnset button:first-child {margin-left:0}
@@ -221,71 +222,6 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 }
 
 .swiper-slide {width:80% !important}
-
-/*
-.rotate-qr-slider {
-  position: relative;
-  width: 100%;
-  height: 50rem;
-  border-radius:0.8rem;
-  overflow:hidden;
-}
-
-.rotate-qr-slider .arrow {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-color: #000;
-  position: absolute;
-  top: 50%;
-  margin-top: -25px;
-  cursor: pointer;
-  color: #fff;
-  text-align: center;
-}
-
-.rotate-qr-slider .arrow.left { left: 0; }
-
-.rotate-qr-slider .arrow.right { right: 0}
-
-
-.rotate-qr-slider .rotateslider-item {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  border-radius:0.8rem;
-  -webkit-transform: translateY(-50%) translateX(-50%) scale(0.6);
-  -ms-transform: translateY(-50%) translateX(-50%) scale(0.6);
-  transform: translateY(-50%) translateX(-50%) scale(0.6);
-  opacity: 0;
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  border-radius:0.8rem; overflow:hidden;
-}
-
-.rotate-qr-slider .rotateslider-item.next {
-  left: 80%;
-  opacity: 0.5;
-}
-
-.rotate-qr-slider .rotateslider-item.prev {
-  left: 20%;
-  opacity: 0.5;
-}
-
-.rotate-qr-slider .rotateslider-item.now {
-  opacity: 1;
-  -webkit-filter: blur(0px);
-  filter: blur(0px);
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%) scale(1);
-  -ms-transform: translateY(-50%) translateX(-50%) scale(1);
-  transform: translateY(-50%) translateX(-50%) scale(1);
-}
-*/
 
 .chatting-container {padding-top:8rem}
 .chatting-container .chatting-list {margin:0 2rem}
@@ -314,9 +250,9 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 
 
 @media (max-width:375px) {	
-	.chabbae-start {position:absolute; left:0; top:2rem; transform:translateY(0); width:100%; height:auto; padding:0 2rem 2rem 2rem}
+	/* .chabbae-start {position:absolute; left:0; top:2rem; transform:translateY(0); width:100%; height:auto; padding:0 2rem 2rem 2rem}
 
 	.my_qrcode_setting {padding:3rem 0 0 0}
 	.my_qrcode_setting h2 {margin:0 0 2.5rem 0}
-	.my_qrcode_setting .btn-bottom-fixed {height:7.8rem}
+	.my_qrcode_setting .btn-bottom-fixed {height:7.8rem} */
 }
