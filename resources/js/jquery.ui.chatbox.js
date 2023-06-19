@@ -192,7 +192,6 @@
                         msg = $.trim($(this).val());
                         if (msg.length > 0) {
                             self.options.messageSent(self.options.id, self.options.user, msg);
-							//$(msgElement).parent().addClass("me");
                         }
                         $(this).val('');
                         return false;
@@ -208,8 +207,16 @@
 				
 				}),
 			uiChatboxBtn = (self.uiChatInner = $('<button type=button>등록</button>'))
-                .addClass('ui-widget-chat-button btn-enter')
-                .appendTo(uiChatInner)
+                .addClass('ui-widget-chat-button btn-enter').appendTo(uiChatInner);
+
+			uiChatboxBtn.click(function(event){				
+				msg = $.trim($('<input type=text class=ui-chatbox-input-box>').val());
+				if (msg.length > 0) {
+					self.options.messageSent(self.options.id, self.options.user, msg);
+				}
+				$('<input type=text class=ui-chatbox-input-box>').val('');
+				return false;
+			});
 
             // disable selection
             uiChatboxTitlebar.find('*').add(uiChatboxTitlebar).disableSelection();
