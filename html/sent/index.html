@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
-<meta name="description" content="차좀빼주세요">
-<meta name="keywords" content="차좀빼주세요">
+<meta name="description" content="차플리">
+<meta name="keywords" content="차플리">
 <meta property="og:type" content="website">
-<meta property="og:title" content="차좀빼주세요">
-<meta property="og:description" content="차좀빼주세요">
-<meta property="og:site_name" content="차좀빼주세요">
+<meta property="og:title" content="차플리">
+<meta property="og:description" content="차플리">
+<meta property="og:site_name" content="차플리">
 <meta property="og:image" content="../../resources/images/og-img.png">
-<title>차좀빼주세요</title>
+<title>차플리</title>
 <link rel="icon" type="image/png" href="../../resources/images/favicon.png">
 <link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
 <script src="../../resources/js/jquery-1.11.2.min.js"></script>
@@ -27,7 +27,7 @@
 	<header class="chat-header">
 		<button type="button" class="btn-alram" title="알림">알림</button>
 		<h1><strong>12가1234 차주 채팅</strong></h1>
-		<span class="txt-status">호출중</span>
+		<span class="txt-status" onclick="chatClose()">호출중</span>
 	</header>
 	<!-- //E: chat-header -->
 
@@ -40,11 +40,11 @@
 			<div class="chabbae-contact">
 				<ul>
 					<li class="me"><span>나</span></li>
-					<li class="bot"><span>차빼봇</span></li>
+					<li class="bot"><span>차플리</span></li>
 					<li class="owner"><span>차주</span></li>
 				</ul>
 				<dl>
-					<dt>차빼가 대신 연락할게요!</dt>
+					<dt>차플리가 대신 연락할게요!</dt>
 					<dd>차주 2인에게 동시 연락중입니다.<br>편하게 기다려주세요.</dd>
 				</dl>
 			</div>
@@ -92,31 +92,6 @@
 				</div>
 			</div>
 			<div id="chat-ui-div"></div>
-			<div class="chat-msgbox" style="display:none">
-				<div class="msg-first-send"><strong>"지정주차 구역입니다."</strong></div>
-				<div class="msg-sorry-contact">불편함을 드려 죄송합니다. 해당 내용으로 차주와 곧 연결해 드리겠습니다.</div>
-				<div class="msg-get-owner">
-					<p class="pic"></p>
-					<ul>
-						<li><p>연락 확인했습니다.</p></li>
-						<li><p><strong>5분</strong> 내로 이동주차 하겠습니다.</p></li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="msg-owner-complete"  style="display:none"><p>차주가 완료한 연락입니다.</p></div>
-
-			<div class="chabbae-sms-pr" style="display:none">
-				<dl>
-					<dt>
-						<em>무료이용</em>
-						<strong>이동주차 연락.</strong>
-						<span>스마트하게 관리하는 <br>방법이 궁금하다면?</span>							
-					</dt>
-					<dd><p>안심QR코드로 개인정보 보호까지!</p></dd>
-				</dl>
-				<button type="button" onclick="front.modalView('pop-smsapply')">문자로 안내 받기</button>
-			</div>
 		</div>
 	</div>
 	<!-- //E: sent-container -->	
@@ -143,7 +118,7 @@
 							<button type="button" onclick="arsReCall()">안심 ARS 재호출</button>
 							<button type="button">직접 전화</button>
 						</div>
-						<p class="txt-msg">차빼가 차주를 호출 중일 때는 전화 시 통화 중으로 뜰 수 있습니다.</p>
+						<p class="txt-msg">차플리가 차주를 호출 중일 때는 전화 시 통화 중으로 뜰 수 있습니다.</p>
 					</li>
 					<li>
 						<h3>이동주차 문제</h3>
@@ -234,13 +209,13 @@
 		
 		<!-- S: pop-smsapply -->
 		<div class="popupwrap pop-smsapply">
-			<button type="button" class="btn-popclose" title="닫기">닫기</button>
+			<button type="button" class="btn-popclose" onclick="front.modalHide('pop-smsapply')" title="닫기">닫기</button>
 			<h1 class="hide">문자 분양정보 보내기</h1>
 			<div class="popcontents">
 				<div class="sales-guide">
 					<h2>
 						<strong>문자로 가입안내 받기</strong>
-						<span>휴대폰번호를 남겨주시면 문자로 차좀빼주세요<br>가입안내를 전달드립니다!</span>
+						<span>휴대폰번호를 남겨주시면 문자로 차플리<br>가입안내를 전달드립니다!</span>
 					</h2>
 					<div class="qr-view"><img src="../../resources/images/temp_qr_img.jpg" alt=""></div>
 					<fieldset>
@@ -260,7 +235,7 @@
 			<div class="popupwrap pop-alert sms"> <!-- 각 부모팝업 안에 alert popup -->
 				<div class="popcontents">
 					<div class="alert-msg">
-						<p>차좀빼주세요<br>가입안내를 발송했습니다!</p>
+						<p>차플리<br>가입안내를 발송했습니다!</p>
 					</div>
 					<button type="button" class="btn-black" onclick="front.modalHide('pop-alert.sms', 'pop-smsapply')">닫기</button>
 				</div>
@@ -304,7 +279,7 @@ function arsReCall(){
 	$("ul.calling-msg li:first-child").css("display", "flex");
 	$("ul.calling-msg li:first-child span").text("차빼가 대신 전화 거는 중이에요.");
 	clearTimeout();
-	Countdown(10); // 10s setting
+	Countdown(7); // 10s setting
 }
 
 function directMsgToggle(){
@@ -332,14 +307,14 @@ setTimeout(function(){
 		$(".chat-header .btn-alram").addClass("animated");
 		setTimeout(function(){
 			$(".chat-bottom").addClass("animated");
-			Countdown(10); // 10s setting
+			Countdown(7); // 7s setting
 			
 			setTimeout(function(){
 				$(".apt-look-around").fadeIn();
 				$("html, body").animate({scrollTop:'+=280'}, 1000);
 				setTimeout(function(){
 					$(".chat-bottom").addClass("dOpen").animate({bottom:"0"}, 600, function(){
-						$(this).append("<div class='transparents-layer'></div>");
+						$(this).append("<div class='transparents-layer' onclick='directMsgToggle()'></div>");
 						$("ul.calling-msg li").hide();
 						$("ul.calling-msg li.recall").css("display", "flex");
 						clearTimeout();
@@ -357,28 +332,80 @@ function chatCall(clickMsg){
 	directMsgToggle();
 	$("html, body").animate({scrollTop:'+=400'}, 1000);
 	$(".sent-container").addClass("chat-insert");
-	$("#chat-ui-div").append("<div class='ui-chatbox-msg me'><strong>"+clickMsg+"</strong></div>");
-	$("#chat-ui-div").append("<div class='ui-chatbox-msg'><p class='alert-notice'>불편함을 드려 죄송합니다. 해당 내용으로 차주와 곧 연결해 드리겠습니다.</p></div>");
-	//$("#chat-ui-div").chatbox("option", "boxManager").addMsg("", "불편함을 드려 죄송합니다. 해당 내용으로 차주와 곧 연결해 드리겠습니다.");
+	$("#chat-ui-div").append("<div class='ui-chatbox-msg me'><i>"+clickMsg+"</i></div>");
+	$("#chat-ui-div").append("<div class='ui-chatbox-msg notice'><p class='alert-notice'>불편함을 드려 죄송합니다. 해당 내용으로 차주와 곧 연결해 드리겠습니다.</p></div>");
 	$("#chat-ui-div").chatbox({
-		width:"100%",
 		highlightBox:false,
-		user:"me",
 		messageSent:function(id, user, msg){
-			this.boxManager.addMsg("", msg);
+			this.boxManager.addMsg('', msg);
+			this.boxManager.addMsg('차주', '연락 확인했습니다. ');
+			this.boxManager.addMsg('차주', '5분 내로 이동주차 하겠습니다.');
 		}
 	});
 }
 
-function chatInsert(){	
-	$(".chat-bottom").animate({bottom:"-65rem"}, 500, function(){
-		$(this).removeClass("dOpen animated");
-		$(".direct-msg").removeClass("open");
-		$("ul.calling-msg").hide();
-		$("ul.calling-msg li").hide();
-		$(".ui-chatbox-input").show();
-		clearTimeout();
-	});
+function chatClose(){
+	$("#chat-ui-div").chatbox({
+		hidden:true
+	});	
+	$(".txt-status").text("완료");
+	$(".chat-contents").animate({scrollTop:'+=500'}, 500);
+	setTimeout(function(){		
+		$(".chat-contents").append("<div class='msg-owner-complete'><p>차주가 완료한 연락입니다.</p></div>"+
+		"<div class='chabbae-sms-pr'>"+
+			"<dl>"+
+				"<dt>"+
+					"<em>무료이용</em>"+
+					"<strong>이동주차 연락.</strong>"+
+					"<span>스마트하게 관리하는 <br>방법이 궁금하다면?</span>"+	
+				"</dt>"+
+				"<dd><p>안심QR코드로 개인정보 보호까지!</p></dd>"+
+			"</dl>"+
+			"<button type=button onclick=front.modalView('pop-smsapply')>문자로 안내 받기</button>"+
+		"</div>");
+		$(".msg-owner-complete").addClass("showOn");
+		$(".ui-chatbox-input").fadeOut();
+		$(".direct-msg").removeClass("dOpen animated");
+		$(".chat-bottom").animate({bottom:"-65rem"}, 700, function(){
+			$(".ars-calling").css("display", "none");
+		});
+	}, 700);
+}
+
+function chatInsert(){
+	if ($(".chat-bottom > .transparents-layer").length > 0){		
+		directMsgToggle();
+		$("html, body").animate({scrollTop:'+=700'}, 1000);
+		$(".sent-container").addClass("chat-insert");
+		$("#chat-ui-div").append("<div class='ui-chatbox-msg notice'><p class='alert-notice'>불편함을 드려 죄송합니다. 해당 내용으로 차주와 곧 연결해 드리겠습니다.</p></div>");
+		$("#chat-ui-div").chatbox({
+			highlightBox:false,
+			messageSent:function(id, user, msg){
+				this.boxManager.addMsg('', msg);
+				this.boxManager.addMsg('차주', '연락 확인했습니다. ');
+				this.boxManager.addMsg('차주', '5분 내로 이동주차 하겠습니다.');
+			}
+		});
+		$(".chat-bottom").animate({bottom:"-65rem"}, 700, function(){
+			$(this).removeClass("dOpen animated");
+			$(".direct-msg").removeClass("open");
+			$(".ars-calling").css("display", "none");
+			$("ul.calling-msg").hide();
+			$("ul.calling-msg li").hide();
+			$(".ui-chatbox-input").show();
+			clearTimeout();
+		});
+	}else{		
+		$(".chat-bottom").animate({bottom:"-65rem"}, 700, function(){
+			$(this).removeClass("dOpen animated");
+			$(".direct-msg").removeClass("open");
+			$(".ars-calling").css("display", "none");
+			$("ul.calling-msg").hide();
+			$("ul.calling-msg li").hide();
+			$(".ui-chatbox-input").show();
+			clearTimeout();
+		});
+	}
 }
 
 </script>

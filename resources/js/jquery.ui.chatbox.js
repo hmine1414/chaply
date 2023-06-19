@@ -46,6 +46,7 @@
                         var peerName = document.createElement("b");
                         $(peerName).text(peer + ": ");
                         e.appendChild(peerName);
+                        $(e).removeClass("me").addClass("car-owner");
                     } else {
                         systemMessage = true;
                     }
@@ -55,7 +56,7 @@
                     $(msgElement).text(msg);
                     e.appendChild(msgElement);
                     $(e).addClass("ui-chatbox-msg");
-					//$(msgElement).addClass("student");
+					$(msgElement).parent().addClass("me");
                     $(e).css("maxWidth", $(box).width());
                     $(e).fadeIn();
                     self._scrollToBottom();
@@ -162,10 +163,28 @@
 			uiChatInner = (self.uiChatboxInput = $('<div></div>'))
                 .addClass('ui-chatbox-input-box-inner')
                 .appendTo(uiChatboxInput)			
-			uiChatToggle = (self.uiChatboxInput = $('<button type=button>등록</button>'))
+			uiChatToggle = (self.uiChatboxInput = $('<button type=button>메뉴열기</button>'))
                 .addClass('btn-toggle')
-                .appendTo(uiChatInner)
-            uiChatboxInputBox = (self.uiChatboxInputBox = $('<textarea></textarea>'))
+                .appendTo(uiChatInner);
+			uiChatToggle.click(function(event) {
+				$(".ui-chatbox-input").hide();
+				$(".ars-calling").css("display", "flex");
+				$("ul.calling-msg").show();
+				$("ul.calling-msg li.recall").hide();
+				$("ul.calling-msg li:first-child").css("display", "flex");
+				$("ul.calling-msg li:first-child span").text("차빼가 대신 전화 거는 중이에요.");
+				setTimeout(function(){
+					$(".chat-bottom").addClass("animated");
+					$(".chat-bottom").animate({bottom:"-33rem"}, 600, function(){
+						$(".chat-bottom").addClass("dOpen");
+						$(".direct-msg").removeClass("open");						
+						clearTimeout();
+						Countdown(7); // 7s setting
+					});
+					$(".btn-msg-toggle").text("열기");
+				}, 200);				
+			});
+            uiChatboxInputBox = (self.uiChatboxInputBox = $('<input type=text>'))
                 .addClass('ui-chatbox-input-box')
                 .appendTo(uiChatInner)
                 .keydown(function(event) {
@@ -173,20 +192,19 @@
                         msg = $.trim($(this).val());
                         if (msg.length > 0) {
                             self.options.messageSent(self.options.id, self.options.user, msg);
-							$(msgElement).parent().addClass("me");
-							$(msgElement).parent().prepend($("<strong></strong>"));
+							//$(msgElement).parent().addClass("me");
                         }
                         $(this).val('');
                         return false;
                     }
                 })
                 .focusin(function() {
-                    uiChatboxInputBox.addClass('ui-chatbox-input-focus');
-                    var box = $(this).parent().prev();
-                    box.scrollTop(box.get(0).scrollHeight);
+                    //uiChatboxInputBox.addClass('ui-chatbox-input-focus');
+                    //var box = $(this).parent().prev();
+                    //box.scrollTop(box.get(0).scrollHeight);
                 })
                 .focusout(function() {
-                    uiChatboxInputBox.removeClass('ui-chatbox-input-focus')
+                    //uiChatboxInputBox.removeClass('ui-chatbox-input-focus')
 				
 				}),
 			uiChatboxBtn = (self.uiChatInner = $('<button type=button>등록</button>'))
@@ -213,7 +231,7 @@
                 switch (option) {
                 case "hidden":
                     if (value)
-                        this.uiChatbox.hide();
+                        this.uiChatbox.addClass("chatHidden");
                     else
                         this.uiChatbox.show();
                     break;

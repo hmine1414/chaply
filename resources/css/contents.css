@@ -12,10 +12,10 @@ header .btn-prev {width:3rem; height:3rem; margin-left:-1rem; background:url('..
 header.chat-header {position:fixed}
 header.chat-header .btn-alram {opacity:0; transition:all 0.3s; width:2rem; height:2.4rem; background:url('../images/icon_alram.png') no-repeat 0 50%; background-size:1.95rem auto; font-size:0; text-indent:-9999rem}
 header.chat-header .btn-alram.animated {opacity:1; animation:opacity 0.5s}
-header.chat-header .txt-status {width:6.4rem; height:2.4rem; display:flex; align-items:center; justify-content:center; border-radius:1.2rem; background:#f9fafc; border:1px solid #8b95a1; font-size:1.3rem; color:#8b95a1; font-weight:700}
+header.chat-header .txt-status {max-width:5.6rem; height:2.4rem; padding:0 0.8rem; display:flex; align-items:center; justify-content:center; border-radius:1.2rem; background:#f9fafc; border:1px solid #8b95a1; font-size:1.3rem; color:#8b95a1; font-weight:700; line-height:2.1rem; cursor:pointer}
 
 .sent-container {position:relative; min-height:100%; padding-top:6.5rem; padding-bottom:18rem}
-.sent-container.chat-insert {}
+.sent-container.chat-insert {padding-bottom:9rem}
 .sent-container .car-owner-msg {opacity:0; margin:0 2rem; padding:1.3rem 2rem 1.3rem 2rem; background:#fefefe; border:1px solid #1cacf5; border-radius:0.4rem; line-height:2rem}
 .sent-container .car-owner-msg.animated {opacity:1; animation:bottomToTop 0.6s}
 .sent-container .car-owner-msg p {padding-left:3.2rem; background:url('../images/icon_bell.png') no-repeat 0 0.5rem; background-size:1.8rem auto; color:#232b37; font-size:1.4rem; line-height:2rem}
@@ -45,7 +45,8 @@ header.chat-header .txt-status {width:6.4rem; height:2.4rem; display:flex; align
 .sent-container .apt-look-around ul li dl dd p {display:flex; align-items:flex-start; justify-content:space-between; width:100%; margin-top:0.6rem; white-space:normal}
 .sent-container .apt-look-around ul li dl dd p em {margin-right:1rem; color:#4e5968; font-size:1.3rem}
 .sent-container .apt-look-around ul li dl dd p span {color:#232b37; font-size:1.3rem; word-wrap:break-word; word-break:keep-all}
-.sent-container .msg-owner-complete {display:flex; align-items:center; justify-content:center; height:5.5rem; margin:3rem 2rem; background:#f2f2f5; border-radius:0.4rem}
+.sent-container .msg-owner-complete {opacity:0; transition:all 0.4s 0.3s; display:flex; align-items:center; justify-content:center; height:5.5rem; margin:3rem 2rem; background:#f2f2f5; border-radius:0.4rem}
+.sent-container .msg-owner-complete.showOn {opacity:1}
 .sent-container .msg-owner-complete p {display:inline-block; height:2.4rem; padding:0 0 0 3rem; background:url('../images/icon_chat_smile.png') no-repeat 0 55%; background-size:2rem auto; color:#232b37; font-size:1.4rem; line-height:2.4rem}
 .sent-container .chabbae-sms-pr {width:65%; margin:0 auto}
 .sent-container .chabbae-sms-pr dl {width:100%; min-height:32rem; overflow:hidden; background-color:#fff; border:2px solid transparent; border-radius:1.2rem; background-image:linear-gradient(#fff, #fff), linear-gradient(to right, #1cacf5 0%,  #040039 100%); background-origin:border-box; background-clip: content-box, border-box; box-shadow: 0 0.6rem 0.8rem rgba(0, 0, 0, 0.16), 0 1.6rem 2rem rgba(0, 0, 0, 0.16)}
@@ -55,46 +56,48 @@ header.chat-header .txt-status {width:6.4rem; height:2.4rem; display:flex; align
 .sent-container .chabbae-sms-pr dl dt span {display:block; margin-top:0.5rem; color:#000; font-size:2rem; font-weight:800; line-height:2.8rem}
 .sent-container .chabbae-sms-pr dl dd {margin-top:2rem; padding-bottom:4rem}
 .sent-container .chabbae-sms-pr dl dd p {text-align:center; color:#4e5968; font-size:1.4rem}
-.sent-container .chabbae-sms-pr button {width:100%; height:5.5rem; background:#000; border-radius:1.2rem; box-shadow: 0 0.6rem 0.8rem rgba(0, 0, 0, 0.16), 0 1.6rem 2rem rgba(0, 0, 0, 0.16); color:#fff; font-size:1.6rem}
+.sent-container .chabbae-sms-pr button {width:100%; height:5.5rem; background:#000; border-radius:1.2rem; box-shadow: 0 0.6rem 0.8rem rgba(0,0,0,0.16), 0 1.6rem 2rem rgba(0,0,0,0.16); color:#fff; font-size:1.6rem}
 
 #chat-ui-div {display:none; width:100%}
 .ui-widget {display:none}
 .ui-chatbox {display:none; width:100%; height:0}
-/* .ui-chatbox-log {height:52rem}
-.chat {height:622px} */
-.ui-chatbox input, .ui-chatbox select, .ui-chatbox textarea, .ui-chatbox button {font-family:Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; font-size:1em}
+.ui-chatbox input[type='text'], .ui-chatbox select, .ui-chatbox textarea, .ui-chatbox button {font-size:1.4rem}
 .ui-chatbox-icon {display:none}
 .ui-chatbox .ui-widget-header {display:none}
 .ui-chatbox {position:relative; width:100%; height:0; animation:height 0.6s}
-.ui-chatbox.start {min-height:48rem}
-.ui-chatbox.start #chat-ui-div {display:block}
+.ui-chatbox.start {min-height:36rem}
+.ui-chatbox.start #chat-ui-div {display:block; width:100% !important}
+.ui-chatbox.chatHidden {opacity:0.5; transition:all 0.4s}
 .ui-chatbox-titlebar {display:none}
-.ui-chatbox-content {padding:0; margin:0; border:0}
-.ui-chatbox-log {width:100%; padding:0; height:22rem; overflow-y:auto; overflow-x:hidden}
+.ui-chatbox-content {width:100%; height:auto; padding:0 0 100px 0; margin:0; border:0}
+.ui-chatbox-log {clear:both; overflow:hidden; width:100%; height:auto; padding:0}
 .ui-chatbox-input-focus {border-color:#ddd !important}
 .ui-chatbox-icon {float:right}
 .ui-chatbox-input-focus {border-color:#888}
-.ui-chatbox-msg {float:left; clear:both; margin-top:1rem; white-space:pre-wrap; white-space:-moz-pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word; font-size:1.4rem}
-.ui-chatbox-msg .alert-notice {width:calc(100% - 4rem); margin:0 auto; padding:2rem 5rem; text-align:center; background:#f2f2f5; border-radius:0.4rem; color:#232b37; font-size:1.5rem}
-.ui-chatbox-msg.me {float:right; margin:1rem 1rem 3rem 3rem; padding:0; text-align:right; margin-right:1rem; color:#232b37; font-size:2.2rem; font-weight:800}
-.ui-chatbox-msg.me strong {font-weight:800; word-spacing:-0.05rem}
-.ui-chatbox-msg.me strong::before {content:'" '; font-family:'SCD'; font-weight:600}
-.ui-chatbox-msg.me strong::after {content:' "'; font-family:'SCD'; font-weight:600}
-.ui-chatbox-msg.me i {font-weight:800; word-spacing:-0.05rem}
-.ui-chatbox-msg.me i::before {content:'" '; font-family:'SCD'; font-weight:600}
-.ui-chatbox-msg.me i::after {content:' "'; font-family:'SCD'; font-weight:600}
-.ui-chatbox-msg span {display:block; float:none; overflow:hidden; text-align:left}
-.ui-chatbox-msg .pic {float:right; width:4.8rem; height:4.8rem; margin:0; background:#efefef; border-radius:50%; font-size:0}
-.ui-chatbox-msg .pic img {display:block; width:100%; height:100%}
-.ui-chatbox-msg b {float:left}
+.ui-chatbox-msg {float:left; margin:0; white-space:pre-wrap; white-space:-moz-pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word; font-size:1.4rem}
+.ui-chatbox-msg.notice {float:none; clear:both; max-width:100% !important; margin:0; padding:1rem 0}
+.ui-chatbox-msg.notice .alert-notice {float:none; width:90%; margin:0 auto; padding:2rem 4.2rem; text-align:center; background:#f2f2f5; border-radius:0.4rem; color:#232b37; font-size:1.5rem; line-height:2.5rem}
+.ui-chatbox-msg {float:right; max-width:calc(100% - 20px) !important; margin:1rem 1rem 1rem 2rem; padding:0; text-align:right; color:#232b37; font-size:2.2rem; font-weight:800; line-height:2.8rem}
+.ui-chatbox-msg.me + .ui-chatbox-msg.me {margin-top:0}
+.ui-chatbox-msg.me + .ui-chatbox-msg.car-owner {margin-top:3rem}
+.ui-chatbox-msg.car-owner + .ui-chatbox-msg.car-owner {margin-top:-0.5rem}
+.ui-chatbox-msg.car-owner + .ui-chatbox-msg.car-owner b {visibility:hidden}
+.ui-chatbox-msg.car-owner + .ui-chatbox-msg.car-owner b + span::before {display:none}
+.ui-chatbox-msg i {display:inline-block; font-weight:800; word-spacing:-0.05rem; line-height:2.8rem}
+.ui-chatbox-msg i::before {content:'" '; font-family:'SCD'; font-weight:600}
+.ui-chatbox-msg i::after {content:' "'; font-family:'SCD'; font-weight:600}
+.ui-chatbox-msg b {float:left; width:5.3rem; height:5.3rem; overflow:hidden; margin:0 2.5rem 0 0; background:url('../images/temp_img_05.jpg') no-repeat 50%; background-size:100% auto; border-radius:50%; font-size:0}
+.ui-chatbox-msg b + span {float:left; position:relative; width:auto; min-height:5rem; display:flex; align-items:center; justify-content:flex-start; padding:12px; text-align:left; background:#fff; border-radius:0.5rem; box-shadow:0 0 0.5rem rgba(0,0,0,0.1); color:#4e5968; font-size:14px; line-height:19px}
+.ui-chatbox-msg b + span::before {position:absolute; left:-1.75rem; top:50%; width:1.7rem; height:2.2rem; margin-top:-1.1rem; background:url('../images/bg_balloonbox_arr.png') no-repeat 100% 0; background-size:100% auto; content:''}
+
 .ui-chatbox-msg {width:100%}
-.ui-chatbox-content {width:100%}
 .ui-chatbox-input {display:none; position:fixed; left:0; bottom:0; width:100%; height:9.2rem; padding:0.7rem 2rem 0 0; background:#fff; border-top:1px solid #e2e6e9; border-radius:0 !important}
-.ui-chatbox-input .ui-chatbox-input-box-inner {position:relative; width:100%; height:3.6rem; padding:0.9rem 0 0 7rem}
+.ui-chatbox-input .ui-chatbox-input-box-inner {position:relative; width:100%; height:3.6rem; padding:0.4rem 0 0 7rem}
 .ui-chatbox-input .ui-chatbox-input-box-inner::before {position:absolute; right:0; top:0; width:calc(100% - 5.8rem); height:100%; background:#f2f2f5; border-radius:1.8rem; content:''}
+.ui-chatbox-input input[type='text'] {position:relative; width:calc(100% - 4.5rem); height:100%; background:transparent; border:0; resize:none}
 .ui-chatbox-input textarea {position:relative; width:calc(100% - 4.5rem); height:100%; background:transparent; border:0; resize:none}
 .ui-chatbox-input .btn-enter {position:absolute; right:0.7rem; top:0.7rem; width:2.4rem; height:2.4rem; background:url('../images/icon_enter.png') 50%; background-size:100% auto; font-size:0; text-indent:-99999rem}
-.ui-chatbox-input .btn-toggle {position:absolute; left:1.3rem; top:0.3rem; width:3rem; height:3.2rem; background:url('../images/icon_category.png') no-repeat 50%; background-size:100% auto; font-size:0; text-indent:-99999rem}
+.ui-chatbox-input .btn-toggle {position:absolute; left:1.1rem; top:0; width:3.8rem; height:3.7rem; background:url('../images/icon_category.png') no-repeat 50%; background-size:100% auto; font-size:0; text-indent:-99999rem}
 
 .chat-bottom {position:fixed; left:0; bottom:-65rem; z-index:40; width:100%; height:50rem}
 .chat-bottom .transparents-layer {z-index:39; top:0; left:0; position:fixed; width:100%; min-height:100%; background:rgba(0,0,0,0.3)}
@@ -103,7 +106,6 @@ header.chat-header .txt-status {width:6.4rem; height:2.4rem; display:flex; align
 .chat-bottom.dOpen .direct-msg.open h2 + p {opacity:1}
 .chat-bottom.dOpen .direct-msg.open .btn-msg-toggle {color:#8b95a1}
 .chat-bottom.dOpen .direct-msg.open .btn-msg-toggle::after {background:url('../images/icon_arr_02.png') no-repeat 100% 50%; background-size:100% auto}
-
 
 .chat-bottom .ars-calling {position:absolute; left:2rem; bottom:43.5rem; z-index:41; width:calc(100% - 4rem); height:4.8rem; display:flex; align-items:center; justify-content:space-between; padding:0; background:rgba(0,0,0,0.6); border-radius:0.4rem}
 .chat-bottom .ars-calling ul.calling-msg {width:100%; height:1.7rem; overflow:hidden}
@@ -181,7 +183,7 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 .member-container h2 strong {color:#000; font-size:2.4rem; line-height:3rem; font-weight:800}
 .member-container fieldset .btn-black {width:100%; margin-top:4rem}
 
-.my_qrcode_setting {position:relative; width:100%; height:100%; overflow:hidden; padding:4rem 0 0 0; background:url('../images/bg_myqr.jpg') no-repeat 100% 100%; background-size:cover}
+.my_qrcode_setting {position:relative; width:100%; height:calc(100% - 4rem); overflow:hidden; padding:4rem 0 0 0; background:url('../images/bg_myqr.jpg') no-repeat 100% 100%; background-size:cover}
 .my_qrcode_setting h2 {margin:0 0 3.5rem 0; text-align:center}
 .my_qrcode_setting h2 strong {color:#fff; font-size:2.4rem; line-height:3rem; font-weight:800}
 .my_qrcode_setting .qrcode-show {width:100%; padding:0; margin:0 0 5rem 0; border-radius:0.8rem}

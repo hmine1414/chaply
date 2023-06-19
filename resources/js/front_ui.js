@@ -49,12 +49,12 @@ frontUI.prototype = {
 		var transparentLayer, transparentLayer2;		
 
 		if(!parentModal){
-			$("html, body").animate({scrollTop:0}, 500);
+			//$("html, body").animate({scrollTop:0}, 500);
 
 			$(".modalpop").addClass("active");
 			$(".modalpop").find(".popupwrap.active").removeClass("active");
-			$("body").css("height", modalEl.height()+"px");
-			$("#wrap").css("height", modalEl.height()+"px").css("overflow", "hidden");
+			$("html, body").css("height", modalEl.height()+"px");
+			$("#wrap").css("height", modalEl.height()+"px").css("overflow-y", "hidden");
 			modalEl.addClass("active");
 			
 			if($("body > .pop-transparents-layer").length == 0) {
@@ -79,13 +79,17 @@ frontUI.prototype = {
 		var parentModal;
 
 		if(!parentModal){
+			$("html, body").css("height", "auto");
+			$("#wrap").css("height", "auto").css("overflow-y", "auto");
 			$("body > .pop-transparents-layer").remove();
 			modalEl.find(".popupwrap").removeClass("active");
 			$(".modalpop").removeClass("active");
 		}else{
 			parentModal = $("."+parentModal);
 			if (parentCloseYN === true){
-				parentModal.css({visibility:"hidden", opacity:"0", left:"-99999px", top:"-99999px"})
+				parentModal.css({visibility:"hidden", opacity:"0", left:"-99999px", top:"-99999px"});
+				$("html, body").css("height", "auto");
+				$("#wrap").css("height", "auto").css("overflow-y", "auto");
 				parentModal.find(modalEl).removeClass("active");
 				parentModal.children(".pop-transparents-layer").remove();
 				$("body > .pop-transparents-layer").remove();
