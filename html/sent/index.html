@@ -65,8 +65,8 @@
 							<dl onclick="front.modalView('pop-aptview')">
 								<dt><span class="pic"><img src="../../resources/images/temp_img_02.jpg" alt=""></span><strong>분양중</strong></dt>
 								<dd>
-									<strong>힐스테이트 라군인테라스</strong>
-									<p><em>현장위치</em><span>서울시 강남구 삼성동 144-6~8, 12번지</span></p>
+									<strong>힐스테이트 라군 in Terrace</strong>
+									<p><em>현장위치</em><span>서울시 서초구 반포동 120~125번지</span></p>
 								</dd>
 							</dl>
 						</li>
@@ -75,7 +75,7 @@
 								<dt><span class="pic"><img src="../../resources/images/temp_img_03.jpg" alt=""></span><strong>분양중</strong></dt>
 								<dd>
 									<strong>힐스테이트 원주 레스티지</strong>
-									<p><em>현장위치</em><span>서울시 강남구 삼성동 144-6~8, 12번지</span></p>
+									<p><em>현장위치</em><span>강원도 원주시 단원구 단원동 80번지</span></p>
 								</dd>
 							</dl>
 						</li>
@@ -84,7 +84,66 @@
 								<dt><span class="pic"><img src="../../resources/images/temp_img_04.jpg" alt=""></span><strong>분양중</strong></dt>
 								<dd>
 									<strong>힐스테이트 서대구역 센트럴</strong>
-									<p><em>현장위치</em><span>서울시 강남구 삼성동 144-6~8, 12번지</span></p>
+									<p><em>현장위치</em><span>대구광역시 서구 이현동 232-100번지</span></p>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="car-checking">
+				<h2>기다리는 동안 차량 점검 해보세요</h2>
+				<div class="tslide">
+					<ul>
+						<li>
+							<dl>
+								<dt><span class="pic"><img src="../../resources/images/img_carchk_01.jpg" alt=""></span></dt>
+								<dd>
+									<strong>타이어 점검</strong>
+									<ul>
+										<li>타이어 공기압을 측정하고 제조사 권장 압력과 비교하기</li>
+										<li>타이어 홈 마모가 1.6mm 이하일 경우 교체필요</li>
+										<li>바퀴 및 타이어의 노면 접촉 부위에서 불균일한 마모가 있는지 확인</li>
+									</ul>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><span class="pic"><img src="../../resources/images/img_carchk_02.jpg" alt=""></span></dt>
+								<dd>
+									<strong>차량 화재 예방 점검</strong>
+									<ul>
+										<li>배터리 및 배터리 케이블에 파손 및 부식이 있는지 확인</li>
+										<li>장시간 실외주차 시 자동차의 뒤쪽을 해가 비치는 방향으로 주차</li>
+										<li>라이터·배터리·탄산수 등 폭발성 물건 체크</li>
+									</ul>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><span class="pic"><img src="../../resources/images/img_carchk_03.jpg" alt=""></span></dt>
+								<dd>
+									<strong>에어컨 필터 점검</strong>
+									<ul>
+										<li>시동을 끄고 차량 내부 온도가 식은 후에 점검</li>
+										<li>필터가 매우 오래되거나 오염이 심한 경우 교체</li>
+										<li>에어컨 성능을 확인하고 에어흐름과 온도가 정상인지 확인</li>
+									</ul>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><span class="pic"><img src="../../resources/images/img_carchk_04.jpg" alt=""></span></dt>
+								<dd>
+									<strong>냉각수 점검</strong>
+									<ul>
+										<li>엔진을 가동시켜 냉각수 온도가 정상 범위 내에 있는지 확인</li>
+										<li>정차 시 바닥에 냉각수 누수 흔적이 있는지 확인</li>
+										<li>오래됐거나 냉각수에 오염물이 많이 섞인 경우 냉각수를 교체</li>
+									</ul>
 								</dd>
 							</dl>
 						</li>
@@ -310,7 +369,7 @@ setTimeout(function(){
 			Countdown(7); // 7s setting
 			
 			setTimeout(function(){
-				$(".apt-look-around").fadeIn();
+				$(".car-checking").fadeIn();
 				$("html, body").animate({scrollTop:'+=280'}, 1000);
 				setTimeout(function(){
 					$(".chat-bottom").addClass("dOpen").animate({bottom:"0"}, 600, function(){
@@ -320,7 +379,7 @@ setTimeout(function(){
 						clearTimeout();
 					});	
 				}, 7000);
-			}, 2500); 
+			}, 500); 
 
 		}, 3000);
 	}, 1200);	

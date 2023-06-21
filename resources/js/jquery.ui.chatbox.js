@@ -196,25 +196,16 @@
                         $(this).val('');
                         return false;
                     }
-                })
-                .focusin(function() {
-                    //uiChatboxInputBox.addClass('ui-chatbox-input-focus');
-                    //var box = $(this).parent().prev();
-                    //box.scrollTop(box.get(0).scrollHeight);
-                })
-                .focusout(function() {
-                    //uiChatboxInputBox.removeClass('ui-chatbox-input-focus')
-				
-				}),
-			uiChatboxBtn = (self.uiChatInner = $('<button type=button>등록</button>'))
-                .addClass('ui-widget-chat-button btn-enter').appendTo(uiChatInner);
+            });
 
-			uiChatboxBtn.click(function(event){				
-				msg = $.trim($('<input type=text class=ui-chatbox-input-box>').val());
+			uiChatboxBtn = (self.uiChatInner = $('<button type=button id=btn-enter>등록</button>'))
+            .addClass('ui-widget-chat-button btn-enter').appendTo(uiChatInner);
+			uiChatboxBtn.click(function(){
+				msg = $.trim($(this).prev().val());
 				if (msg.length > 0) {
 					self.options.messageSent(self.options.id, self.options.user, msg);
 				}
-				$('<input type=text class=ui-chatbox-input-box>').val('');
+				$(this).prev().val('');
 				return false;
 			});
 
