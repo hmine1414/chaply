@@ -248,9 +248,9 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 .member-container .memberjoin-complete .complete-slider ul.slick-dots li:last-child {display:none}
 .member-container .memberjoin-complete .complete-slider ul.slick-dots li button {width:0.6rem; height:0.6rem; background:#777a80; border-radius:0.3rem; font-size:0}
 .member-container .memberjoin-complete .complete-slider ul.slick-dots li.slick-active button {width:2.1rem; background:#fff}
-.member-container .welcome-show-qrcode {display:none; position:absolute; left:0; top:0; z-index:20; width:100%; height:100vh}
+.member-container .welcome-show-qrcode {display:none; position:absolute; left:0; top:0; z-index:20; width:100%; height:100vh; overflow:hidden}
 .member-container .welcome-show-qrcode.active {display:flex; align-items:center; justify-content:center}
-.member-container .welcome-show-qrcode .squarebox {position:relative; width:80%}
+.member-container .welcome-show-qrcode .squarebox {position:relative; width:80%; overflow:hidden}
 .member-container .welcome-show-qrcode .squarebox.hidden::before {opacity:0 !important; transition-delay:0.2s}
 .member-container .welcome-show-qrcode .squarebox.hidden .inner::before {opacity:0 !important; transition-delay:0.2s}
 .member-container .welcome-show-qrcode .squarebox.hidden .inner::after {opacity:0 !important; transition-delay:0.2s}

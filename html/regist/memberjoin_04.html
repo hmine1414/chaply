@@ -70,11 +70,13 @@
 setTimeout(function(){
 	$(".memberjoin-complete").addClass("slider-start");
 	$(".complete-slider > ul").slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
+		slidesToShow:1,
+		slidesToScroll:1,
 		arrows:false,
 		dots:true,
+        pauseOnHover:false,
 		autoplay:true,
+        speed:400,
 		autoplaySpeed:2500,
 	});
 	$(".complete-slider > ul").on('beforeChange', function(event, slick, currentSlide, nextSlide){

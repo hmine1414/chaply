@@ -65,7 +65,11 @@ frontUI.prototype = {
 			
 			setTimeout(function(){
 				if($("body > .pop-transparents-layer").length == 0) {
-					$("body").append("<div class='pop-transparents-layer' style='opacity:0.4'></div>");
+					if (modalName == "pop-agreechk1" || modalName == "pop-agreechk2" || modalName == "pop-agreechk3"){
+						//$("body").append("<div class='pop-transparents-layer' style='opacity:0.4'></div>");
+					}else{
+						$("body").append("<div class='pop-transparents-layer' style='opacity:0.4'></div>");
+					}
 				}			
 				modalEl.addClass("active");
 			}, 500);
