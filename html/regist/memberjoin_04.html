@@ -16,39 +16,89 @@
 <link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
 <script src="../../resources/js/jquery-1.11.2.min.js"></script>
 <script src="../../resources/js/jquery_ui.js"></script>
+<script src="../../resources/js/slick.js"></script>
 </head>
 
 <body>
 
 <div id="wrap">
 	<div class="member-container">
-		<div class="complete-slider">
-			<ul>
-				<li>
-					<h3>이동주차 때문에</h3>
-					<span><img src="../../resources/images/img_complete_01.png" alt=""></span>
-				</li>
-				<li>
-					<h3>오고가는 감정들</h3>
-					<span><img src="../../resources/images/img_complete_01.png" alt=""></span>
-				</li>
-				<li>
-					<h3>상처주는 말들</h3>
-					<span><img src="../../resources/images/img_complete_01.png" alt=""></span>
-				</li>
-				<li>
-					<h3>이제 지켜줄게요!</h3>
-					<span><img src="../../resources/images/img_complete_01.png" alt=""></span>
-				</li>
-				<li>
-					<h3>홍길동님<br>가입을 환영합니다.</h3>
-				</li>
-			</ul>
+		<div class="memberjoin-complete">
+			<div class="complete-slider">
+				<ul>
+					<li>
+						<h3>이동주차 때문에</h3>
+						<span><img src="../../resources/images/img_complete_01.png" alt=""></span>
+					</li>
+					<li>
+						<h3>오고가는 감정들</h3>
+						<span><img src="../../resources/images/img_complete_02.png" alt=""></span>
+					</li>
+					<li>
+						<h3>상처주는 말들</h3>
+						<span><img src="../../resources/images/img_complete_03.png" alt=""></span>
+					</li>
+					<li>
+						<h3>이제 지켜줄게요!</h3>
+						<span><img src="../../resources/images/img_complete_04.png" alt=""></span>
+					</li>
+					<li>
+						<p class="welcome">홍길동님<br>가입을 환영합니다.</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="welcome-show-qrcode">
+			<div class="squarebox">
+				<div class="inner"><p><strong>홍길동님<br>가입을 환영합니다!</strong></p></div>
+				<span class="tack-5"></span>
+				<span class="tack-6"></span>
+			</div>
+			<div class="btn-bottom-fixed">
+				<span>서비스 이용을 위해 안심 QR코드를 생성 해주세요!</span>
+				<p class="btncenter">
+					<button type="button" class="btn-white">나중에</button>
+					<button type="button" class="btn-black" onclick="location.href='qrcode_make.html'">지금 생성할래요</button>
+				</p>
+			</div>
 		</div>
 	</div>
-
 </div>
 
 <script src="../../resources/js/front_ui.js"></script>
+<script>
+setTimeout(function(){
+	$(".memberjoin-complete").addClass("slider-start");
+	$(".complete-slider > ul").slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows:false,
+		dots:true,
+		autoplay:true,
+		autoplaySpeed:2500,
+	});
+	$(".complete-slider > ul").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		if (nextSlide == 4){
+			$(".slick-dots").fadeOut();
+			setTimeout(function(){
+				$(".memberjoin-complete").removeClass("slider-start").addClass("bg-welcome");
+				$(".complete-slider > ul").slick('unslick');
+				$(".welcome-show-qrcode").addClass("active");
+				setTimeout(function(){
+					$(".squarebox").addClass("active");
+					setTimeout(function(){
+						$(".squarebox .inner").addClass("bg-none");
+						$(".squarebox").addClass("hidden");
+						$(".squarebox .inner p strong").fadeIn();
+						$(".btn-bottom-fixed").addClass("open");
+					}, 800);
+				}, 800);
+			}, 1000);
+		}else{
+			$(".slick-dots").fadeIn();
+		}
+	});
+}, 1000);
+</script>
 </body>
 </html>

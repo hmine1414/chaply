@@ -23,35 +23,64 @@
 <div id="wrap">
 	<div class="member-container">
 		<h2><strong>이름을 입력해주세요</strong></h2>
-		<fieldset>
+		<fieldset class="memberjoin">
 			<ul class="formgroup">
-				<!-- li>
+				<li class="insert-cp">
+					<label class="input-over">통신사</label>
+					<div>
+						<p class="optionbox">
+							<select>
+								<option>통신사</option><option>SKT</option><option>KT</option><option>LG U+</option>
+								<option>SKT 알뜰폰</option><option>KT 알뜰폰</option><option>LG U+ 알뜰폰</option>
+							</select>
+						</p>
+					</div>
+				</li>
+				<li class="insert-cellphone">
 					<label class="input-over">휴대폰번호</label>
 					<div>
 						<p class="inpbox"><input type="text"></p>
 					</div>
 				</li>
-				<li>
-					<label class="input-over">통신사</label>
+				<li class="insert-jumin">
+					<label class="input-over">주민등록번호</label>
 					<div>
-						<p class="optionbox"><select><option>통신사</option></select></p>
+						<span class="inpbox"><input type="text"></span><em>-</em><span class="inpbox"><input type="text"></span>
 					</div>
 				</li>
-				<li>
-					<label class="input-over">주민등록번호</label>
-					<div><span class="inpbox"><input type="text"></span><span class="inpbox"><input type="text"></span></div>
-				</li -->
-				<li>
+				<li class="insert-name on">
 					<label class="input-over">이름</label>
 					<div><p class="inpbox delete"><input type="text"><button type="button" class="btn-delete">삭제</button></p></div>
 				</li>
 			</ul>
-			<button type="button" class="btn-black" onclick="location.href='memberjoin_02.html'">다음</button>
+			<button type="button" class="btn-black" onclick="nextForm()">다음</button>
 		</fieldset>
 	</div>
 </div>
 
 <script src="../../resources/js/front_ui.js"></script>
-
+<script>
+function nextForm(){
+	if ($(".insert-name").is(".on") && !$(".insert-jumin").is(".on") && !$(".insert-cellphone").is(".on") && !$(".insert-cp").is(".on")){
+		$(".insert-jumin").fadeIn(1000).addClass("on");
+		$("h2 strong").text("주민등록번호를 입력해주세요");
+	}else if ($(".insert-name").is(".on") && $(".insert-jumin").is(".on") && !$(".insert-cellphone").is(".on") && !$(".insert-cp").is(".on")){
+		$(".insert-cellphone").fadeIn(1000).addClass("on");
+		$("h2 strong").text("휴대폰번호를 입력해주세요");
+	}else if ($(".insert-name").is(".on") && $(".insert-jumin").is(".on") && $(".insert-cellphone").is(".on") && !$(".insert-cp").is(".on")){
+		$(".insert-cp").fadeIn(1000).addClass("on");
+		$("h2 strong").text("통신사를 선택해주세요");
+	}else if ($(".insert-name").is(".on") && $(".insert-jumin").is(".on") && $(".insert-cellphone").is(".on") && $(".insert-cp").is(".on")){
+		location.href='memberjoin_02.html';
+	}
+	
+	/*else if ($(".insert-cellphone").is(".on")){
+		$(".insert-cp").fadeIn(1000).addClass("on");
+		$("h2 strong").text("통신사를 선택해주세요");
+	}else if ($(".insert-cp").is(".on")){
+		location.href='memberjoin_02.html'
+	} */
+}
+</script>
 </body>
 </html>

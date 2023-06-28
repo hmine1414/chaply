@@ -22,11 +22,23 @@
 
 <div id="wrap">
 	<div class="member-container">
-		<h2>인증번호를 입력해주세요</h2>
-		<fieldset>
-			<div><p><input type="text"><span>05:55</span></p></div>
-			<button type="button"><em>인증번호 재전송</em></button>
+		<h2><strong>인증번호를 입력해주세요</strong></h2>
+		<fieldset class="number-auth">
+			<ul class="formgroup">
+				<li class="insert-auth">
+					<label class="input-over">인증번호</label>
+					<div>
+						<p class="inpbox">
+							<input type="text"><button type="button" class="btn-delete" title="삭제">삭제</button>
+							<span>02:55</span>
+						</p>
+					</div>
+				</li>
+			</ul>
+			<button type="button" class="btn-number-resend"><em>인증번호 재전송</em></button>
 		</fieldset>
+		<!-- <button type="button" class="btn-confirm btn-black" onclick="front.modalView('pop-alert')">확인</button> -->
+		<button type="button" class="btn-confirm btn-black" onclick="location.href='memberjoin_04.html'">확인</button>
 	</div>
 
 	<!-- S: modalpop -->
@@ -45,5 +57,12 @@
 </div>
 
 <script src="../../resources/js/front_ui.js"></script>
+<script>
+$(".formgroup li.insert-auth input").focus(function() { 
+	$(".btn-delete").show();
+}).blur(function() {	
+	$(".btn-delete").hide();
+});
+</script>
 </body>
 </html>

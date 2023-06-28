@@ -22,15 +22,16 @@
 
 <div id="wrap">
 	<div class="member-container">
-		<h2>약관에 동의해주세요.</h2>		
+		<h2><strong>약관에 동의해주세요.</strong></h2>		
 		<div class="agreechk">
-			<span><input type="checkbox" id="agreeAllOk" checked><label for="agreeAllOk">약관 전체 동의</label></span>
+			<span><input type="checkbox" id="agreeAllOk"><label for="agreeAllOk">약관 전체 동의</label></span>
 		</div>
-		<ul>
-			<li><span>(필수) 서비스 이용약관 동의</span><a href="javascript:front.modalView('pop-agreechk1')">보기</a></li>
-			<li><span>(필수) 개인정보 동의</span><a href="javascript:front.modalView('pop-agreechk2')">보기</a></li>
-			<li><span>(필수) 서비스 이용 동의</span><a href="javascript:front.modalView('pop-agreechk3')">보기</a></li>
+		<ul class="agree-servicechk">
+			<li><span><input type="checkbox" name="agreeChk" id="agreeChk1"><label for="agreeChk1">(필수) 서비스 이용약관 동의</label></span><a href="javascript:front.modalView('pop-agreechk1')">보기</a></li>
+			<li><span><input type="checkbox" name="agreeChk" id="agreeChk2"><label for="agreeChk2">(필수) 개인정보 동의</label></span><a href="javascript:front.modalView('pop-agreechk2')">보기</a></li>
+			<li><span><input type="checkbox" name="agreeChk" id="agreeChk3"><label for="agreeChk3">(필수) 서비스 이용 동의</label></span><a href="javascript:front.modalView('pop-agreechk3')">보기</a></li>
 		</ul>
+		<button type="button" class="btn-confirm disabled" onclick="location.href='memberjoin_03.html'">확인</button> <!-- 활성화시 disabled 클래스 삭제 -->
 	</div>
 
 	<!-- S: modalpop -->
@@ -39,7 +40,7 @@
 		<!-- S: pop-agreechk1 -->
 		<div class="popupwrap pop-agreechk1">
 			<button type="button" class="btn-popclose" onclick="front.modalHide('pop-agreechk1')" title="닫기">닫기</button>
-			<h1 class="hide">서비스 이용약관 동의</h1>
+			<h1>서비스 이용약관 동의</h1>
 			<div class="popcontents">
 				<div class="rulebox">
 					<dl>
@@ -68,8 +69,34 @@
 						③ ‘개인회원’은 회사에 개인정보를 제공하여 회원등록을 한 사람으로, 회사로부터 지속적으로 정보를 제공 받고 ‘회사’가 제공하는 서비스를 계속적으로 이용할 수 있는 자를 말합니다.<br>
 						</dd>
 					</dl>
+					<dl>
+						<dt>제5조(목적)</dt>
+						<dd>이 약관은 차플리 (이하 ‘회사’ 라고 합니다)가 제공하는 제반 서비스의 이용과 관련하여 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</dd>
+					</dl>
+					<dl>
+						<dt>제6조(정의)</dt>
+						<dd>
+						이 약관에서 사용하는 주요 용어의 정의는 다음과 같습니다.<br>
+						① ‘서비스’라 함은 구현되는 단말기(PC, TV, 휴대형단말기 등의 각종 유무선 장치를 포함)와 상관없이 ‘이용자’가 이용할 수 있는 회사가 제공하는 제반 서비스를 의미합니다.<br>
+						② ‘이용자’란 이 약관에 따라 회사가 제공하는 서비스를 받는 ‘개인회원’, ‘기업회원’ 및 ‘비회원’을 말합니다.<br>
+						③ ‘개인회원’은 회사에 개인정보를 제공하여 회원등록을 한 사람으로, 회사로부터 지속적으로 정보를 제공 받고 ‘회사’가 제공하는 서비스를 계속적으로 이용할 수 있는 자를 말합니다.<br>
+						</dd>
+					</dl>
+					<dl>
+						<dt>제7조(목적)</dt>
+						<dd>이 약관은 차플리 (이하 ‘회사’ 라고 합니다)가 제공하는 제반 서비스의 이용과 관련하여 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</dd>
+					</dl>
+					<dl>
+						<dt>제8조(정의)</dt>
+						<dd>
+						이 약관에서 사용하는 주요 용어의 정의는 다음과 같습니다.<br>
+						① ‘서비스’라 함은 구현되는 단말기(PC, TV, 휴대형단말기 등의 각종 유무선 장치를 포함)와 상관없이 ‘이용자’가 이용할 수 있는 회사가 제공하는 제반 서비스를 의미합니다.<br>
+						② ‘이용자’란 이 약관에 따라 회사가 제공하는 서비스를 받는 ‘개인회원’, ‘기업회원’ 및 ‘비회원’을 말합니다.<br>
+						③ ‘개인회원’은 회사에 개인정보를 제공하여 회원등록을 한 사람으로, 회사로부터 지속적으로 정보를 제공 받고 ‘회사’가 제공하는 서비스를 계속적으로 이용할 수 있는 자를 말합니다.<br>
+						</dd>
+					</dl>
 				</div>
-				<button type="button" class="btn-black">확인하고 전체 동의</button>
+				<span class="btnset"><button type="button" class="btn-black">확인하고 전체 동의</button></span>
 			</div>
 		</div>
 		<!-- //E: pop-agreechk1 -->
@@ -78,7 +105,7 @@
 		<!-- S: pop-agreechk2 -->
 		<div class="popupwrap pop-agreechk2">
 			<button type="button" class="btn-popclose" onclick="front.modalHide('pop-agreechk2')" title="닫기">닫기</button>
-			<h1 class="hide">서비스 이용약관 동의</h1>
+			<h1>서비스 이용약관 동의</h1>
 			<div class="popcontents">
 				<div class="rulebox">
 					<dl>
@@ -121,7 +148,7 @@
 						</dd>
 					</dl>
 				</div>
-				<button type="button" class="btn-black">확인하고 전체 동의</button>
+				<span class="btnset"><button type="button" class="btn-black">확인하고 전체 동의</button></span>
 			</div>
 		</div>
 		<!-- //E: pop-agreechk2 -->
@@ -130,7 +157,7 @@
 		<!-- S: pop-agreechk3 -->
 		<div class="popupwrap pop-agreechk3">
 			<button type="button" class="btn-popclose" onclick="front.modalHide('pop-agreechk3')" title="닫기">닫기</button>
-			<h1 class="hide">서비스 이용약관 동의</h1>
+			<h1>서비스 이용약관 동의</h1>
 			<div class="popcontents">
 				<div class="rulebox">
 					<dl>
@@ -164,7 +191,7 @@
 						<dd>이 약관은 차플리 (이하 ‘회사’ 라고 합니다)가 제공하는 제반 서비스의 이용과 관련하여 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</dd>
 					</dl>
 				</div>
-				<button type="button" class="btn-black">확인하고 전체 동의</button>
+				<span class="btnset"><button type="button" class="btn-black">확인하고 전체 동의</button></span>
 			</div>
 		</div>
 		<!-- //E: pop-agreechk3 -->
@@ -175,5 +202,18 @@
 </div>
 
 <script src="../../resources/js/front_ui.js"></script>
+<script>
+$("ul.agree-servicechk > li input:checkbox[name='agreeChk']").click(function() {
+	if ($("ul.agree-servicechk > li:eq(0) input:checkbox[name='agreeChk']").is(":checked") && $("ul.agree-servicechk > li:eq(1) input:checkbox[name='agreeChk']").is(":checked") && $("ul.agree-servicechk > li:eq(2) input:checkbox[name='agreeChk']").is(":checked")) {
+		$(".btn-confirm").removeClass("disabled");
+		$("input[id='agreeAllOk']").attr("checked", true);
+	}
+});
+
+$(".agreechk input:checkbox[id='agreeAllOk']").click(function(){
+	$("ul.agree-servicechk > li input:checkbox[name='agreeChk']").attr("checked", true);
+	$(".btn-confirm").removeClass("disabled");
+});
+</script>
 </body>
 </html>

@@ -26,6 +26,7 @@
 		<button type="button" class="btn-delete">삭제</button>
 	</header>
 	<div class="qrcode-setting">
+		<h2><strong>나의 안심QR코드</strong></h2>		
 		<ul>
 			<li>
 				<label>차량번호</label>
@@ -39,41 +40,40 @@
 				</div>
 			</li>
 			<li>
-				<label>대리인 연락처 설정</label>
+				<label>대리인 연락처 설정&nbsp; <input type="checkbox" class="switch"></label>
 				<div>
 					<span class="msg">QR 스캔 시 모두에게 안심 ARS가 전송됩니다.</span>
-					<ul>
-						<li>
-							<span class="inpbox"><input type="text"></span>
-							<span class="inpbox"><input type="text"></span>
-						</li>
-						<li>
-							<span class="inpbox"><input type="text"></span>
-							<span class="inpbox"><input type="text"></span>
-							<button type="button" class="btn-delete">삭제</button>
-						</li>
-						<li><button type="button" class="btn-black">항목추가</button></li>
-					</ul>
+					<div class="deputy-setting-form">
+						<ul>
+							<li>
+								<span class="inpbox"><input type="text" value="홍길동"></span>
+								<span class="inpbox"><input type="text" value="010-1235-8888"></span>
+							</li>
+							<li>
+								<span class="inpbox"><input type="text" placeholder="대리인 이름"></span>
+								<span class="inpbox"><input type="text" placeholder="대리인 전화번호"></span>
+								<button type="button" class="btn-delete">삭제</button>
+							</li>
+						</ul>
+						<button type="button" class="btn-black btn-save">저장</button>
+					</div>
 				</div>
 			</li>
 			<li>
 				<label>빠른 응답(상세) 설정</label>
 				<div>
 					<span class="msg">해당 QR에서만 사용 가능한 빠른 응답 설정 입니다.</span>
-					<ul>
-						<li>
-							<p class="inpbox"><input type="text" value="A동 501호 직원입니다. 연락주세요."></p>
-						</li>
-						<li>
-							<span class="inpbox"><input type="text" value="주차관리인이 빼줄거예요."></span>
-							<button type="button" class="btn-delete">삭제</button>
-						</li>
-						<li><button type="button" class="btn-black">항목추가</button></li>
-					</ul>
+					<div class="item-setting-form">
+						<ul>
+							<li><p><span class="inpbox"><input type="text" placeholder="빠른 응답 설정 문구를 입력해주세요" value="기어 내려놨으니 밀어서 나가셔도 돼요"></span></p></li>
+							<li><p><span class="inpbox"><input type="text" placeholder="빠른 응답 설정 문구를 입력해주세요" value=""></span><button type="button" title="삭제">삭제</button></p></li>
+						</ul>
+						<button type="button" class="btn-white btn-add">항목추가</button>
+					</div>
 				</div>
 			</li>
 		</ul>
-		<button type="button" class="btn-black">저장</button>
+		<button type="button" class="btn-black btn-save">저장</button>
 	</div>
 </div>
 

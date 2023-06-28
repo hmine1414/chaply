@@ -257,7 +257,7 @@
 			</div>
 			<div class="popupwrap pop-alert apt"> <!-- 각 부모팝업 안에 alert popup -->
 				<div class="popcontents">
-					<div class="alert-msg">
+					<div class="alert-msg chk-img">
 						<p>관심고객 등록이<br>접수되었습니다.</p>
 					</div>
 					<button type="button" class="btn-black" onclick="front.modalHide('pop-alert.apt', 'pop-aptview')">닫기</button>
@@ -293,7 +293,7 @@
 			</div>
 			<div class="popupwrap pop-alert sms"> <!-- 각 부모팝업 안에 alert popup -->
 				<div class="popcontents">
-					<div class="alert-msg">
+					<div class="alert-msg chk-img">
 						<p>차플리<br>가입안내를 발송했습니다!</p>
 					</div>
 					<button type="button" class="btn-black" onclick="front.modalHide('pop-alert.sms', 'pop-smsapply')">닫기</button>
@@ -366,10 +366,10 @@ setTimeout(function(){
 		$(".chat-header .btn-alram").addClass("animated");
 		setTimeout(function(){
 			$(".chat-bottom").addClass("animated");
-			Countdown(7); // 7s setting
+			Countdown(10); // 10s setting
 			
 			setTimeout(function(){
-				$(".car-checking").fadeIn();
+				$(".apt-look-around").fadeIn();
 				$("html, body").animate({scrollTop:'+=280'}, 1000);
 				setTimeout(function(){
 					$(".chat-bottom").addClass("dOpen").animate({bottom:"0"}, 600, function(){
@@ -379,7 +379,7 @@ setTimeout(function(){
 						clearTimeout();
 					});	
 				}, 7000);
-			}, 500); 
+			}, 800); 
 
 		}, 3000);
 	}, 1200);	

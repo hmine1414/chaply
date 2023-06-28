@@ -22,6 +22,13 @@ var frontUI = function() {
 				myLabelParent.removeClass("focusIn");
 			}
 		});
+
+		$(".formgroup .optionbox select").click(function(){			
+			var myLabelParent = $(this).parent().parent().parent();
+			myLabelParent.addClass("focusIn");
+			$(this).css("font-size", "1.4rem");
+		});
+
 	});
 
 	$(window).resize(function(){
@@ -52,16 +59,19 @@ frontUI.prototype = {
 			//$("html, body").animate({scrollTop:0}, 500);
 
 			$(".modalpop").addClass("active");
-			$(".modalpop").find(".popupwrap.active").removeClass("active");
+			$(".modalpop").find(".popupwrap").removeClass("active");
 			$("html, body").css("height", modalEl.height()+"px");
 			$("#wrap").css("height", modalEl.height()+"px").css("overflow-y", "hidden");
-			modalEl.addClass("active");
 			
-			if($("body > .pop-transparents-layer").length == 0) {
-				$("body").append("<div class='pop-transparents-layer' style='opacity:0'></div>");
-			}
+			setTimeout(function(){
+				if($("body > .pop-transparents-layer").length == 0) {
+					$("body").append("<div class='pop-transparents-layer' style='opacity:0.4'></div>");
+				}			
+				modalEl.addClass("active");
+			}, 500);
+
 			transparentLayer = $("body > .pop-transparents-layer");
-		}else{			
+		}else{
 			parentModal = $("."+parentModal);
 			parentModal.find(modalEl).addClass("active").css("z-index", "111");
 			parentModal.append("<div class='pop-transparents-layer'></div>");
@@ -81,9 +91,11 @@ frontUI.prototype = {
 		if(!parentModal){
 			$("html, body").css("height", "auto");
 			$("#wrap").css("height", "auto").css("overflow-y", "auto");
-			$("body > .pop-transparents-layer").remove();
-			modalEl.find(".popupwrap").removeClass("active");
-			$(".modalpop").removeClass("active");
+			setTimeout(function(){
+				$(".modalpop").removeClass("active");
+				$("body > .pop-transparents-layer").remove();
+				modalEl.removeClass("active");
+			}, 500);
 		}else{
 			parentModal = $("."+parentModal);
 			if (parentCloseYN === true){
