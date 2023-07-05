@@ -162,7 +162,7 @@
 				<li><span>ARS 전화가 가고있는 중입니다.</span><em class="timer-view">00:00</em></li>
 				<li class="recall">
 					<span>호출이 끝났습니다.</span>
-					<p><a href="javascript:arsReCall()">재호출</a><a href="#">기다릴게요</a></p>
+					<p><a href="javascript: arsReCall()">재호출</a><a href="#">기다릴게요</a></p>
 				</li>
 			</ul>
 		</div>
@@ -335,7 +335,12 @@ function arsReCall(){
 	$("ul.calling-msg li:first-child").css("display", "flex");
 	$("ul.calling-msg li:first-child span").text("차플리가 대신 전화 거는 중이에요.");
 	clearTimeout();
-	Countdown(7); // 10s setting
+	Countdown(7); // 7s setting
+	setTimeout(function(){
+		$("ul.calling-msg li").hide();
+		$("ul.calling-msg li.recall").css("display", "flex");
+		directMsgToggle();
+	}, 7000);
 }
 
 function directMsgToggle(){
@@ -357,17 +362,15 @@ function directMsgToggle(){
 
 setTimeout(function(){
 	$(".car-owner-msg").addClass("animated");
-
 	setTimeout(function(){
 		$(".chabbae-contact").addClass("animated");
 		$(".chat-header .btn-alram").addClass("animated");
 		setTimeout(function(){
 			$(".chat-bottom").addClass("animated");
-			Countdown(10); // 10s setting
-			
+			Countdown(10); // 10s setting			
 			setTimeout(function(){
 				$(".apt-look-around").fadeIn();
-				$("html, body").animate({scrollTop:'+=280'}, 1000);
+				$("html, body").animate({scrollTop:'+=280px'}, 1000);
 				setTimeout(function(){
 					$(".chat-bottom").addClass("dOpen").animate({bottom:"0"}, 600, function(){
 						$(this).append("<div class='transparents-layer' onclick='directMsgToggle()'></div>");
@@ -380,24 +383,26 @@ setTimeout(function(){
 
 		}, 3000);
 	}, 1200);	
-
 }, 1200);
 
 
 function chatCall(clickMsg){
 	directMsgToggle();
-	$("html, body").animate({scrollTop:'+=400'}, 1000);
+	$(".txt-status").text("호출확인");
+	$("html, body").animate({scrollTop:'+=400px'}, 1000);
 	$(".sent-container").addClass("chat-insert");
 	$("#chat-ui-div").append("<div class='ui-chatbox-msg me'><i>"+clickMsg+"</i></div>");
 	$("#chat-ui-div").append("<div class='ui-chatbox-msg notice'><p class='alert-notice'>불편함을 드려 죄송합니다. 해당 내용으로 차주와 곧 연결해 드리겠습니다.</p></div>");
 	$("#chat-ui-div").chatbox({
 		highlightBox:false,
 		messageSent:function(id, user, msg){
-			this.boxManager.addMsg('', msg);
-			this.boxManager.addMsg('차주', '연락 확인했습니다. ');
+			this.boxManager.addMsg('', msg); /* 입력받는 곳 */
+			this.boxManager.addMsg('차주', '연락 확인했습니다.');
 			this.boxManager.addMsg('차주', '5분 내로 이동주차 하겠습니다.');
+			//this.boxManager.addMsg('', '네 ㅜㅜ');
 		}
-	});
+	});	
+	event.preventDefault();
 }
 
 function chatClose(){
@@ -405,7 +410,7 @@ function chatClose(){
 		hidden:true
 	});	
 	$(".txt-status").text("완료");
-	$(".chat-contents").animate({scrollTop:'+=500'}, 500);
+	$("html, body").animate({scrollTop:'+=500px'}, 1000);
 	setTimeout(function(){		
 		$(".chat-contents").append("<div class='msg-owner-complete'><p>차주가 완료한 연락입니다.</p></div>"+
 		"<div class='chabbae-sms-pr'>"+
@@ -431,14 +436,14 @@ function chatClose(){
 function chatInsert(){
 	if ($(".chat-bottom > .transparents-layer").length > 0){		
 		directMsgToggle();
-		$("html, body").animate({scrollTop:'+=700'}, 1000);
+		$("html, body").animate({scrollTop:'+=700px'}, 1000);
 		$(".sent-container").addClass("chat-insert");
 		$("#chat-ui-div").append("<div class='ui-chatbox-msg notice'><p class='alert-notice'>불편함을 드려 죄송합니다. 해당 내용으로 차주와 곧 연결해 드리겠습니다.</p></div>");
 		$("#chat-ui-div").chatbox({
 			highlightBox:false,
 			messageSent:function(id, user, msg){
-				this.boxManager.addMsg('', msg);
-				this.boxManager.addMsg('차주', '연락 확인했습니다. ');
+				this.boxManager.addMsg('', msg); /* 입력받는 곳 */
+				this.boxManager.addMsg('차주', '연락 확인했습니다.');
 				this.boxManager.addMsg('차주', '5분 내로 이동주차 하겠습니다.');
 			}
 		});
@@ -463,7 +468,6 @@ function chatInsert(){
 		});
 	}
 }
-
 </script>
 </body>
 </html>

@@ -24,7 +24,7 @@
             offset: 0, // relative to right edge of the browser window
             width: 250, // width of the chatbox
             messageSent: function(id, user, msg) {
-                this.boxManager.addMsg(user.first_name, msg);
+                this.boxManager.addMsg(id, user, msg);
             },
             boxClosed: function(id) {
             }, // called when the close icon is clicked
@@ -59,9 +59,14 @@
 					if (!$(msgElement).parent().hasClass("car-owner")){						
 						$(msgElement).parent().addClass("me");
 					}
-                    $(e).css("maxWidth", $(box).width());
-                    $(e).fadeIn();
-                    self._scrollToBottom();
+
+					$(e).css("maxWidth", $(box).width());
+
+					$(e).delay(500).fadeIn();
+					self.elem.uiChatbox.effect({}, {}, 500, function() {
+                        //self.highlightLock = false;
+                        self._scrollToBottom();
+                    });
 
                     if (!self.elem.uiChatboxTitlebar.hasClass("ui-state-focus")
                         && !self.highlightLock) {
@@ -174,7 +179,7 @@
 				$("ul.calling-msg").show();
 				$("ul.calling-msg li.recall").hide();
 				$("ul.calling-msg li:first-child").css("display", "flex");
-				$("ul.calling-msg li:first-child span").text("차빼가 대신 전화 거는 중이에요.");
+				$("ul.calling-msg li:first-child span").text("차플리가 대신 전화 거는 중이에요.");
 				setTimeout(function(){
 					$(".chat-bottom").addClass("animated");
 					$(".chat-bottom").animate({bottom:"-33rem"}, 600, function(){

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+<meta name="description" content="차플리">
+<meta name="keywords" content="차플리">
+<meta property="og:type" content="website">
+<meta property="og:title" content="차플리">
+<meta property="og:description" content="차플리">
+<meta property="og:site_name" content="차플리">
+<meta property="og:image" content="../../resources/images/og-img.png">
+<title>차플리</title>
+<link rel="icon" type="image/png" href="../../resources/images/favicon.png">
+<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+<script src="../../resources/js/jquery-1.11.2.min.js"></script>
+<script src="../../resources/js/jquery_ui.js"></script>
+<script src="../../resources/js/jquery.ui.chatbox.js"></script>
+<script src="../../resources/js/vimeo.player.js"></script>
+</head>
+
+<body>
+
+<div id="wrap">
+	<!-- S: pickup-header -->
+	<header class="pickup-header">
+		<button type="button" class="btn-prev" title="이전">이전</button>
+		<h1><strong>12가1234 요청자3</strong></h1>
+	</header>
+	<!-- //E: pickup-header -->
+
+	<!-- S: pickup-container -->
+	<div class="pickup-container">		
+		<div class="chat-contents">	
+			<div id="chat-ui-div"></div>
+			<div class="btnset">
+				<strong>이동주차가 완료되었나요?</strong>
+				<button type="button" class="btn-black">네 완료 되었습니다.</button>
+				<p class="msg-complete"><span>완료된 연락입니다!</span></p>
+			</div>
+		</div>
+	</div>
+	<!-- //E: pickup-container -->	
+	
+	<!-- S: pickup-bottom -->
+	<div class="pickup-bottom" style="bottom:-33rem">
+		<div class="direct-msg">
+			<h2><strong>빠른 요청 문구</strong><button type="button" class="btn-msg-toggle" onclick="directMsgToggle()">열기</button></h2>
+			<p>추가 메시지를 남기면 차주 호출에 도움이 됩니다.</p>
+			<div class="tslide">
+				<ul>
+					<li>
+						<h3>도착시간</h3>
+						<ul>
+							<li><a href="javascript: chatCall('5분내로 도착합니다')">5분내로 도착합니다</a></li>
+							<li><a href="javascript: chatCall('10분내로 도착합니다')">10분내로 도착합니다.</a></li>
+							<li><a href="javascript: chatCall('15분내로 도착합니다')">15분내로 도착합니다</a></li>
+							<li><a href="javascript: chatCall('20분내로 도착합니다')">20분내로 도착합니다</a></li>
+						</ul>
+					</li>
+					<li>
+						<h3>가는중</h3>
+						<ul>
+							<li><a href="javascript: chatCall('빨리 빼러 가겠습니다')">빨리 빼러 가겠습니다</a></li>
+							<li><a href="javascript: chatCall('예정보다 늦을 것 같아요')">예정보다 늦을 것 같아요</a></li>
+							<li><a href="javascript: chatCall('곧 가니 잠시만 기다려 주세요')">곧 가니 잠시만 기다려 주세요</a></li>
+							<li><a href="javascript: chatCall('곧 도착해요')">곧 도착해요</a></li>
+						</ul>
+					</li>
+					<li>
+						<h3>상황설명</h3>
+						<ul>
+							<li><a href="javascript: chatCall('전화가 불가능한 상황입니다')">전화가 불가능한 상황입니다</a></li>
+							<li><a href="javascript: chatCall('목욕중이라 잠시만요')">목욕중이라 잠시만요</a></li>
+							<li><a href="javascript: chatCall('업무중이라 잠시만요')">업무중이라 잠시만요</a></li>
+							<li><a href="javascript: chatCall('회의중이라 잠시만요')">회의중이라 잠시만요</a></li>
+						</ul>
+					</li>
+					<li>
+						<h3>내가 추가한 메시지</h3>
+						<ul>
+							<li><a href="javascript: chatCall(기어 내려놨으니 밀어서 나가셔도 돼요')">기어 내려놨으니 밀어서 나가셔도 돼요</a></li>
+							<li><a href="javascript: chatCall('주차관리인이 빼줄거예요')">주차관리인이 빼줄거예요</a></li>
+						</ul>
+					</li>
+					<li class="direct-insert">
+						<h3>직접입력</h3>
+						<div class="btnset">
+							<button type="button" class="btn-direct-insert" onclick="chatInsert()">직접입력</button>
+						</div>
+						<p class="txt-msg">차량문제나 사고 시 직접입력을 사용해보세요</p>						
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //E: pickup-bottom -->
+</div>
+
+<script src="../../resources/js/front_ui.js"></script>
+<script>
+function directMsgToggle(){
+	if (!$(".direct-msg").is(".open")){
+		$(".direct-msg").addClass("open");
+		$(".pickup-bottom").animate({bottom:"0"}, 500, function(){			
+			$(".btn-msg-toggle").text("닫기");
+		});
+	}else{
+		$(".direct-msg").removeClass("open");
+		$(".pickup-bottom").animate({bottom:"-33rem"}, 500);
+		$(".btn-msg-toggle").text("열기");
+	}
+}
+
+$("#chat-ui-div").chatbox({});
+$("#chat-ui-div").append("<div class='ui-chatbox-msg notice'><p class='alert-notice'>2023년 3월 2일 목요일 <br>10시 32분에 온 요청입니다.</p></div>");
+setTimeout(function(){
+	$("#chat-ui-div").chatbox("option", "boxManager").addMsg("차주", "지정주차구역입니다");
+	$("#chat-ui-div").chatbox("option", "boxManager").addMsg("차주", "급한상황이라서 늦게라도 꼭 빼주세요");
+	setTimeout(function(){
+		$("#chat-ui-div").chatbox("option", "boxManager").addMsg("", "연락확인했습니다");
+		setTimeout(function(){
+			$(".btnset").css("display", "flex");
+			$(".pickup-bottom").animate({bottom:"-65rem"}, 800, function(){
+				$(".btnset .msg-complete").addClass("show");
+			});
+		}, 60000);
+	}, 1000);	
+}, 1200);	
+
+$(".pickup-bottom").animate({bottom:"-33rem"}, 500, function(){
+	$(this).addClass("dOpen animated");
+	$(".btn-msg-toggle").text("열기");
+});
+
+
+function chatCall(clickMsg){
+	$("#chat-ui-div").append("<div class='ui-chatbox-msg me'><i>"+clickMsg+"</i></div>");
+	directMsgToggle();
+	$("#chat-ui-div").chatbox({
+		highlightBox:false,
+		messageSent:function(id, user, msg){
+			this.boxManager.addMsg('', msg);
+			this.boxManager.addMsg('차주', '연락 확인했습니다. ');
+			this.boxManager.addMsg('차주', '5분 내로 이동주차 하겠습니다.');
+		}
+	});
+}
+</script>
+</body>
+</html>

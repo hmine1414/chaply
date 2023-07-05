@@ -65,14 +65,14 @@ frontUI.prototype = {
 			
 			setTimeout(function(){
 				if($("body > .pop-transparents-layer").length == 0) {
-					if (modalName == "pop-agreechk1" || modalName == "pop-agreechk2" || modalName == "pop-agreechk3"){
-					}else{
+					if (modalName == "pop-qrview" || modalName == "pop-alert"){
 						$("body").append("<div class='pop-transparents-layer' style='opacity:0.4'></div>");
+					}else{
+						$("body").addClass("modalStyle");
 					}
-				}			
+				}
 				modalEl.addClass("active");
 			}, 500);
-
 			transparentLayer = $("body > .pop-transparents-layer");
 		}else{
 			parentModal = $("."+parentModal);
@@ -97,10 +97,11 @@ frontUI.prototype = {
 				setTimeout(function(){
 					$("html, body").css("height", "auto");
 					$("#wrap").css("height", "auto").css("overflow-y", "auto");
+					$("body").removeClass("modalStyle");
 					setTimeout(function(){
 						$("body > .pop-transparents-layer").remove();
 						modalEl.addClass("bgTransition");
-						setTimeout(function(){							
+						setTimeout(function(){
 							modalEl.removeClass("active");
 							$(".modalpop").removeClass("active");
 							location.href='qrcode_make_complete.html';
@@ -110,6 +111,7 @@ frontUI.prototype = {
 			}else{
 				$("html, body").css("height", "auto");
 				$("#wrap").css("height", "auto").css("overflow-y", "auto");
+				$("body").removeClass("modalStyle");
 				setTimeout(function(){
 					$(".modalpop").removeClass("active");
 					$("body > .pop-transparents-layer").remove();

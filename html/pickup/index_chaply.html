@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+<meta name="description" content="차플리">
+<meta name="keywords" content="차플리">
+<meta property="og:type" content="website">
+<meta property="og:title" content="차플리">
+<meta property="og:description" content="차플리">
+<meta property="og:site_name" content="차플리">
+<meta property="og:image" content="../../resources/images/og-img.png">
+<title>차플리</title>
+<link rel="icon" type="image/png" href="../../resources/images/favicon.png">
+<link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
+<script src="../../resources/js/jquery-1.11.2.min.js"></script>
+<script src="../../resources/js/jquery_ui.js"></script>
+<script src="../../resources/js/jquery.ui.chatbox.js"></script>
+</head>
+
+<body>
+
+<div id="wrap">
+	<!-- S: pickup-header -->
+	<header class="pickup-header">
+		<div class="chaply-pick" onclick="">	<!-- chaply 타입 -->	
+			<span class="pic"></span><strong>차플리</strong>
+		</div> 
+	</header>
+	<!-- //E: pickup-header -->
+
+	<!-- S: pickup-container -->
+	<div class="pickup-container chaply-pick">	<!-- chaply 타입 -->	
+		<div class="chat-contents">	
+			<div id="chat-ui-div">
+			</div>
+		</div>
+	</div>
+	<!-- //E: pickup-container -->	
+	
+	<!-- S: pickup-bottom -->
+	<div class="pickup-bottom">
+		<div class="direct-msg open">
+			<h2><strong>빠른 요청 문구</strong><button type="button" class="btn-msg-toggle" onclick="directMsgToggle()">닫기</button></h2>
+			<p>추가 메시지를 남기면 차주 호출에 도움이 됩니다.</p>
+		</div>
+	</div>
+	<!-- //E: pickup-bottom -->
+</div>
+
+<script src="../../resources/js/front_ui.js"></script>
+<script>
+chatCall();
+function chatCall(){	
+	$("#chat-ui-div").chatbox({
+	});
+	setTimeout(function(){
+		$("#chat-ui-div").append("<div class=chaply-today><div class=profile><span class=pic></span><em>차플리</em></div><strong>Today</strong></div>");
+		$("#chat-ui-div").append("<div class='ui-chatbox-msg chaply-qrcode-alram'><dl><dt><strong>안심QR코드 이동주차서비스</strong><img src='../../resources/images/temp_qr_img_02.jpg'></dt><dd><strong>차플리</strong><span>3월 2일 10시 05분 요청 알림입니다</span></dd></dl></div>");
+	}, 1000);
+}
+</script>
+</body>
+</html>
