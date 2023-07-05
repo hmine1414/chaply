@@ -66,7 +66,6 @@ frontUI.prototype = {
 			setTimeout(function(){
 				if($("body > .pop-transparents-layer").length == 0) {
 					if (modalName == "pop-agreechk1" || modalName == "pop-agreechk2" || modalName == "pop-agreechk3"){
-						//$("body").append("<div class='pop-transparents-layer' style='opacity:0.4'></div>");
 					}else{
 						$("body").append("<div class='pop-transparents-layer' style='opacity:0.4'></div>");
 					}
@@ -91,15 +90,32 @@ frontUI.prototype = {
 		var me = this;
 		var modalEl = $("."+modalName);
 		var parentModal;
-
+		
 		if(!parentModal){
-			$("html, body").css("height", "auto");
-			$("#wrap").css("height", "auto").css("overflow-y", "auto");
-			setTimeout(function(){
-				$(".modalpop").removeClass("active");
-				$("body > .pop-transparents-layer").remove();
-				modalEl.removeClass("active");
-			}, 500);
+			if (modalName == "pop-qrcodemake"){ /* pop-qrcodemake 일때 예외상황 script */
+				front.loadingData();
+				setTimeout(function(){
+					$("html, body").css("height", "auto");
+					$("#wrap").css("height", "auto").css("overflow-y", "auto");
+					setTimeout(function(){
+						$("body > .pop-transparents-layer").remove();
+						modalEl.addClass("bgTransition");
+						setTimeout(function(){							
+							modalEl.removeClass("active");
+							$(".modalpop").removeClass("active");
+							location.href='qrcode_make_complete.html';
+						}, 500);
+					}, 500);
+				}, 500);	
+			}else{
+				$("html, body").css("height", "auto");
+				$("#wrap").css("height", "auto").css("overflow-y", "auto");
+				setTimeout(function(){
+					$(".modalpop").removeClass("active");
+					$("body > .pop-transparents-layer").remove();
+					modalEl.removeClass("active");
+				}, 500);
+			}
 		}else{
 			parentModal = $("."+parentModal);
 			if (parentCloseYN === true){
@@ -130,6 +146,19 @@ frontUI.prototype = {
 		$(".tab-hiddencontents").removeClass("on");
 		$(".tab-hiddencontents."+tabName).addClass("on");
 	},
+	loadingData: function(){
+		if($(".popupwrap").length > 0) {
+			$(".popupwrap").append($("<div class=pop-transparents-layer></div>"));
+			$("body").append($("<div class='loaderbox'><p class='loader'>로딩중</p></div>"));
+		}else{
+			$("body").append($("<div class=pop-transparents-layer></div>"));
+			$("body").append($("<div class='loaderbox'><p class='loader'>로딩중</p></div>"));
+		}
+		setTimeout(function(){
+			$(".loaderbox").fadeOut(300).delay(300).remove();
+			$(".pop-transparents-layer").fadeOut(300).delay(300).remove();
+		}, 1000);
+	}
 }
 
 var front = new frontUI ();

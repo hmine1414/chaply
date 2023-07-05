@@ -56,7 +56,9 @@
                     $(msgElement).text(msg);
                     e.appendChild(msgElement);
                     $(e).addClass("ui-chatbox-msg");
-					$(msgElement).parent().addClass("me");
+					if (!$(msgElement).parent().hasClass("car-owner")){						
+						$(msgElement).parent().addClass("me");
+					}
                     $(e).css("maxWidth", $(box).width());
                     $(e).fadeIn();
                     self._scrollToBottom();

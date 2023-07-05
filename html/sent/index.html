@@ -307,9 +307,8 @@
 
 <script src="../../resources/js/front_ui.js"></script>
 <script>
-
+/* timer setting */
 const timeView = document.querySelector('.timer-view');
-
 function Countdown(seconds) {
   this.sec = seconds;
   this.mins = seconds > 60? seconds/60 : 0;        
@@ -330,8 +329,6 @@ function Countdown(seconds) {
       }
   }
 }
-
-
 
 function arsReCall(){
 	$("ul.calling-msg li.recall").hide();
