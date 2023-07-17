@@ -252,18 +252,6 @@ body.modalStyle .pickup-bottom {opacity:0}
 .pop-qrview .qrcode-alert.show {opacity:1; bottom:3rem}
 .pop-qrview .qrcode-alert span {padding:0 0 0 2rem; background:url('../images/icon_checking_w.png') no-repeat 0 50%; background-size:0.9rem auto; font-size:1.45rem; color:#fff; letter-spacing:0.01rem}
 
-.pop-qrcodemake {width:100%; height:100vh; overflow:hidden; background:#fff; transition:background 0.4s}
-.pop-qrcodemake.bgTransition {opacity:1; background:url('../images/bg_transition_03.jpg') no-repeat 0 0; background-size:cover}
-.pop-qrcodemake.bgTransition .btn-popcolse {display:none}
-.pop-qrcodemake.bgTransition h1 {display:none}
-.pop-qrcodemake.bgTransition .popcontents {display:none}
-.pop-qrcodemake .btn-popclose {background:url('../images/icon_prev.png') no-repeat 50%; background-size:2rem auto}
-.pop-qrcodemake .btn-popclose::after, .pop-qrcodemake .btn-popclose::before {display:none}
-.pop-qrcodemake .popcontents {height:calc(100vh - 21rem); padding:18rem 2rem 3rem 2rem}
-.pop-qrcodemake h1 {position:absolute; left:2rem; top:9rem; margin:0; color:#000; font-size:2.4rem; font-weight:800}
-.pop-qrcodemake .btn-fixed {position:fixed; left:2rem; bottom:3rem; display:block; width:calc(100% - 4rem)}
-.pop-qrcodemake .btn-fixed button {width:100%}
-
 
 /* meda query */
 @media screen and (min-width:768px) and (max-width:1280px) {

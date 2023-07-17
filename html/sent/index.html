@@ -162,7 +162,7 @@
 				<li><span>ARS 전화가 가고있는 중입니다.</span><em class="timer-view">00:00</em></li>
 				<li class="recall">
 					<span>호출이 끝났습니다.</span>
-					<p><a href="javascript: arsReCall()">재호출</a><a href="#">기다릴게요</a></p>
+					<p><a href="javascript: arsReCall()">재호출</a><a href="javascript: arsWait()">기다릴게요</a></p>
 				</li>
 			</ul>
 		</div>
@@ -330,17 +330,31 @@ function Countdown(seconds) {
   }
 }
 
+$(".btn-alram").click(function(){
+	$("html, body").animate({scrollTop:'0'}, 600);	
+});
+
 function arsReCall(){
+	if ($(".ars-calling").is(".hidden")){
+		$(".ars-calling").removeClass("hidden");
+	}
 	$("ul.calling-msg li.recall").hide();
 	$("ul.calling-msg li:first-child").css("display", "flex");
 	$("ul.calling-msg li:first-child span").text("차플리가 대신 전화 거는 중이에요.");
+	directMsgToggle();
 	clearTimeout();
 	Countdown(7); // 7s setting
 	setTimeout(function(){
 		$("ul.calling-msg li").hide();
 		$("ul.calling-msg li.recall").css("display", "flex");
-		directMsgToggle();
 	}, 7000);
+}
+
+function arsWait(){
+	$("ul.calling-msg li").hide();
+	$(".ars-calling").addClass("hidden");
+	directMsgToggle();
+	clearTimeout();
 }
 
 function directMsgToggle(){
@@ -369,7 +383,7 @@ setTimeout(function(){
 			$(".chat-bottom").addClass("animated");
 			Countdown(10); // 10s setting			
 			setTimeout(function(){
-				$(".apt-look-around").fadeIn();
+				$(".car-checking").fadeIn();
 				$("html, body").animate({scrollTop:'+=280px'}, 1000);
 				setTimeout(function(){
 					$(".chat-bottom").addClass("dOpen").animate({bottom:"0"}, 600, function(){
@@ -380,7 +394,6 @@ setTimeout(function(){
 					});	
 				}, 7000);
 			}, 800); 
-
 		}, 3000);
 	}, 1200);	
 }, 1200);

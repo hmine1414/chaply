@@ -74,7 +74,7 @@ header.pickup-header .btn-prev {background:url('../images/icon_prev_03.png') no-
 .sent-container .apt-look-around ul li dl dd p span {color:#232b37; font-size:1.3rem; word-wrap:break-word; word-break:keep-all}
 .sent-container .car-checking {display:none; margin:4rem 0 2rem 2rem; transition:all 1s 2s}
 .sent-container .car-checking h2 {margin-bottom:1rem; color:#232b37; font-size:2rem; font-weight:800}
-.sent-container .car-checking .tslide > ul {height:43rem}
+.sent-container .car-checking .tslide > ul {height:41rem}
 .sent-container .car-checking .tslide > ul > li {width:24rem; margin-right:1rem}
 .sent-container .car-checking .tslide > ul > li dl {width:100%; height:43rem; cursor:pointer}
 .sent-container .car-checking .tslide > ul > li dl dt .pic {display:block; overflow:hidden; border-radius:0.4rem 0.4rem 0 0}
@@ -101,8 +101,11 @@ header.pickup-header .btn-prev {background:url('../images/icon_prev_03.png') no-
 .chatting-container .chatting-list > ul {width:100%}
 .chatting-container .chatting-list > ul > li {position:relative; height:8.5rem; padding-top:4.5rem; border-bottom:1px solid #e5e9ec}
 .chatting-container .chatting-list > ul > li:first-child > .date {color:#37b5f6}
-.chatting-container .chatting-list > ul > li > strong {position:absolute; left:0; top:1.5rem; font-size:1.5rem; font-weight:800; color:#000}
-.chatting-container .chatting-list > ul > li > .date {position:absolute; right:0; top:1.7rem; color:#b8bfc7; font-size:1.4rem}
+.chatting-container .chatting-list > ul > li.status > strong {color:#000}
+.chatting-container .chatting-list > ul > li.status > .date {color:#b8bfc7}
+.chatting-container .chatting-list > ul > li.status > p {color:#232b37}
+.chatting-container .chatting-list > ul > li > strong {position:absolute; left:0; top:1.5rem; font-size:1.5rem; font-weight:800; color:#4e5968}
+.chatting-container .chatting-list > ul > li > .date {position:absolute; right:0; top:1.7rem; color:#afb7bf; font-size:1.4rem}
 .chatting-container .chatting-list > ul > li > p {color:#8b95a1; font-size:1.8rem}
 
 .pickup-container {position:relative; height:100vh; padding-top:6.5rem; padding-bottom:9rem}
@@ -201,7 +204,8 @@ header.pickup-header .btn-prev {background:url('../images/icon_prev_03.png') no-
 .chat-bottom .direct-msg h2 .btn-msg-toggle::after {position:absolute; right:0; top:50%; width:1.2rem; height:0.8rem; margin-top:-0.4rem; background:url('../images/icon_arr_01.png') no-repeat 100% 50%; background-size:98% auto; transition:transform 0.5s; content:''}
 .chat-bottom .direct-msg h2 + p {opacity:0; margin-top:2rem; padding-left:2rem; color:#4e5968; font-size:1.6rem; font-weight:700}
 
-.ars-calling {position:absolute; left:2rem; bottom:43.5rem; z-index:41; width:calc(100% - 4rem); height:4.8rem; display:flex; align-items:center; justify-content:space-between; padding:0; background:rgba(0,0,0,0.6); border-radius:0.4rem}
+.ars-calling {position:absolute; left:2rem; bottom:43.5rem; z-index:41; width:calc(100% - 4rem); height:4.8rem; display:flex; align-items:center; justify-content:space-between; padding:0; background:rgba(0,0,0,0.6); border-radius:0.4rem; transition:opacity 0.4s}
+.ars-calling.hidden {opacity:0}
 .ars-calling ul.calling-msg {width:100%; height:1.7rem; overflow:hidden}
 .ars-calling ul.calling-msg li {display:none; width:100%; align-items:center; justify-content:space-between; color:#fff; font-size:1.4rem; letter-spacing:0.04rem}
 .ars-calling ul.calling-msg li:first-child {display:flex}
@@ -270,14 +274,28 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 .regist-container fieldset .chk label {color:#232b37; font-size:1.6rem}
 .regist-container fieldset .btn-black {width:100%; margin-top:4rem}
 
-.qrcode-container {width:100%; height:100%; padding:0; background:url('../images/bg_myqr.jpg') no-repeat 0 0; background-size:cover}
+.qrcode-container {width:100%; height:100vh; padding:0; background-color:#000001}
+.qrcode-container.bgTransition .makeform {opacity:0}
+.qrcode-container .makeform {position:relative; width:100%; height:100vh; padding:0; background:#fff; transition:opacity 0.3s 1s}
+.qrcode-container .makeform h2 {width:calc(100% - 4rem); text-align:left}
+.qrcode-container .makeform h2 strong {color:#000}
+.qrcode-container .makeform fieldset.qrcode-make-form {margin:0 2rem}
+.qrcode-container .my-qrcode-request {width:100%; height:100vh; padding:0; background:url('../images/bg_myqr.jpg') no-repeat 0 0; background-size:cover}
 .qrcode-container h2 {width:80%; margin:0 auto 3rem; padding-top:5rem; text-align:center}
 .qrcode-container h2 strong {color:#fff; font-size:2.4rem; line-height:3rem; font-weight:800}
 .qrcode-container h2 span {display:block; margin-top:0.5rem; color:#afb7bf; font-size:1.6rem; font-weight:400}
 .qrcode-container .qrviewbox {position:relative; width:calc(100% - 12rem); margin:0 6rem 5rem 6rem}
 .qrcode-container .txt-qrmate-request {width:calc(100% - 4rem); margin:0 2rem; text-align:center; font-size:1.6rem; color:#e2e6e9}
-.qrcode-container .btn-fixed {display:block; width:100%; padding:2rem 2rem 3rem 2rem}
+.qrcode-container .btn-fixed {position:fixed; left:2rem; bottom:3rem; display:block; width:calc(100% - 4rem); padding:0}
 .qrcode-container .btn-fixed button {width:100%}
+.qrcode-container .qrcode_complete {width:100%; height:100vh; padding:0; background:url('../images/bg_transition_03.jpg') no-repeat 0 0; transition:background 0.3s; background-size:cover}
+.qrcode-container .qrcode_complete h2 {opacity:0; transition:opacity 1.2s 0.3s}
+.qrcode-container .qrcode_complete .qrviewbox {opacity:0; margin-bottom:4rem; transition:opacity 1.2s 0.3s}
+.qrcode-container .qrcode_complete .btn-fixed {opacity:0; transition:opacity 1.2s 0.3s}
+.qrcode-container .qrcode_complete.bgTransition {background:url('../images/bg_myqr.jpg') no-repeat 0 0; background-size:cover; transition:background 1.2s 0.3s}
+.qrcode-container .qrcode_complete.bgTransition h2 {opacity:1}
+.qrcode-container .qrcode_complete.bgTransition .qrviewbox {opacity:1}
+.qrcode-container .qrcode_complete.bgTransition .btn-fixed {opacity:1}
 
 .member-container {padding:4rem 2rem 0 2rem}
 .member-container h2 {margin:1rem 0; text-align:left}
@@ -357,15 +375,17 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 .qrviewbox .my-qrcode {position:absolute; left:0; top:0; z-index:21; width:100%; height:100%}
 .qrviewbox .my-qrcode .qr-img {position:absolute; left:50%; top:15%; width:14.4rem; height:14.4rem; transform:translate(-50%, 0); font-size:0}
 .qrviewbox .my-qrcode .qr-img img {width:100%}
-.qrviewbox .my-qrcode .car-number {position:absolute; left:6%; top:4%; color:#d2d8dd; font-size:1.6rem; font-weight:700}
+.qrviewbox .my-qrcode .car-number {position:absolute; left:7%; top:4%; color:#d2d8dd; font-size:1.6rem; font-weight:700}
 .qrviewbox .my-qrcode .btn-setting {position:absolute; right:5%; top:4%; width:2.4rem; height:2.4rem; background:url('../images/icon_setting.png') no-repeat 50%; background-size:1.8rem auto; font-size:0; text-indent:-99999rem}
 .qrviewbox .my-qrcode .txt {position:absolute; left:5%; bottom:35%; width:90%; text-align:center; color:#a4aab0; font-size:1.4rem}
 .qrviewbox .my-qrcode .btn-qr-ad {position:absolute; left:50%; top:15%; width:14.4rem; height:14.4rem; margin-left:-7.2rem; background:url('../images/bg_qr_regist.png') no-repeat 50%; background-size:100% auto; border-radius:1rem; text-indent:-99999rem; font-size:0; }
 
-.my_qrcode_setting {position:relative; width:100%; height:calc(100% - 4rem); overflow:hidden; padding:4rem 0 0 0; background:url('../images/bg_myqr.jpg') no-repeat 100% 100%; background-size:cover}
+.my_qrcode_setting {position:relative; width:100%; height:calc(100vh - 4rem); overflow:hidden; padding:4rem 0 0 0; background:url('../images/bg_myqr.jpg') no-repeat 100% 100%; background-size:cover}
 .my_qrcode_setting .myQrcode-roll {width:100%}
-.my_qrcode_setting .myQrcode-roll .swiper-slide {width:75% !important; height:100%; opacity:0.3; background-position:center; background-size:cover}
-.my_qrcode_setting .myQrcode-roll .swiper-slide.swiper-slide-active {opacity:1}
+.my_qrcode_setting .myQrcode-roll .swiper-slide {width:67% !important; height:100%; opacity:0.2; background-position:center; background-size:cover}
+.my_qrcode_setting .myQrcode-roll .swiper-slide .qrviewbox .my-qrcode .car-number {left:10%}
+.my_qrcode_setting .myQrcode-roll .swiper-slide.swiper-slide-active {width:70% !important; opacity:1}
+.my_qrcode_setting .myQrcode-roll .swiper-slide.swiper-slide-active .qrviewbox .my-qrcode .car-number {left:7%}
 .my_qrcode_setting .myQrcode-roll .swiper-slide img {display:block; width:100%}
 .my_qrcode_setting .qrcode-show {width:100%; padding:0; margin:0; border-radius:0.8rem}
 .my_qrcode_setting .qrcode-show > h2 {margin:0 0 3.5rem 0; text-align:center}

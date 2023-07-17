@@ -22,57 +22,47 @@
 
 <div id="wrap">
 	<div class="qrcode-container">
-		<h2><strong>나의 안심QR코드</strong></h2>
-		<div class="qrviewbox">
-			<p class="bg-qr-img"><img src="../../resources/images/bg_qrcard.png" alt=""></p>
-			<div class="my-qrcode">
-				<button type="button" class="btn-qr-ad" onclick="front.modalView('pop-qrcodemake')">QR 추가 생성</button>
-			</div>
-		</div>
-		<p class="txt-qrmate-request">서비스 이용을 위해 <br>안심 QR코드를 생성 해주세요!</p>
-	</div>
-
-	<!-- S: modalpop -->
-	<div class="modalpop">		
-		<div class="popupwrap pop-qrcodemake">
-			<button type="button" class="btn-popclose" onclick="front.modalHide('pop-qrcodemake')" title="이전">이전</button>
-			<h1>안심QR코드와 연결할 정보를 입력하세요.</h1>
-			<div class="popcontents">				
-				<fieldset>
-					<ul class="formgroup">
-						<li class="insert-carnumber">
-							<label class="input-over">차량번호</label>
-							<div>
-								<p class="inpbox"><input type="text"></p>
-							</div>
-						</li>
-						<li class="insert-cp">
-							<label class="input-over">아파트</label>
-							<div>
-								<p class="optionbox">
-									<select>
-										<option>아파트명 선택</option><option>힐스테이트 송도</option><option>디에이치 개포</option>
-									</select>
-								</p>
-							</div>
-						</li>
-						<li class="insert-cellphone">
-							<label class="input-over">연결 전화번호</label>
-							<div>
-								<p class="inpbox"><input type="text"></p>
-							</div>
-						</li>
-					</ul>
-				</fieldset>
-				<span class="btn-fixed"><button type="button" class="btn-black" onclick="front.modalHide('pop-qrcodemake')">QR 생성</button></span>
-			</div>
+		<div class="makeform">
+			<h2><strong>안심QR코드와 연결할 정보를<br>입력하세요.</strong></h2>
+			<fieldset class="qrcode-make-form">
+				<ul class="formgroup">
+					<li class="insert-carnumber">
+						<label class="input-over">차량 번호</label>
+						<div>
+							<p class="inpbox"><input type="text"></p>
+						</div>
+					</li>
+					<li class="insert-cp">
+						<label class="input-over">아파트(선택)</label>
+						<div>
+							<p class="optionbox">
+								<select>
+									<option>아파트명 선택</option><option>힐스테이트 송도</option><option>디에이치 개포</option>
+								</select>
+							</p>
+						</div>
+					</li>
+					<li class="insert-cellphone">
+						<label class="input-over">연결 전화번호</label>
+						<div>
+							<p class="inpbox"><input type="text"></p>
+						</div>
+					</li>
+				</ul>
+			</fieldset>
+			<span class="btn-fixed"><button type="button" class="btn-black" onclick="qrcodeMake()">QR 생성</button></span>
 		</div>
 	</div>
-	<!-- //E: modalpop -->
 </div>
 
 <script src="../../resources/js/front_ui.js"></script>
 <script>
+function qrcodeMake(){
+	front.loadingData();
+	setTimeout(function(){
+		location.href='qrcode_make_complete.html';
+	}, 700);		
+}
 </script>
 </body>
 </html>

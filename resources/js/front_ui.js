@@ -26,7 +26,8 @@ var frontUI = function() {
 		$(".formgroup .optionbox select").click(function(){			
 			var myLabelParent = $(this).parent().parent().parent();
 			myLabelParent.addClass("focusIn");
-			$(this).css("font-size", "1.4rem");
+			$(this).css("font-size", "2rem");
+			$(this).find("option").css("font-size", "2rem");
 		});
 
 	});
@@ -92,32 +93,14 @@ frontUI.prototype = {
 		var parentModal;
 		
 		if(!parentModal){
-			if (modalName == "pop-qrcodemake"){ /* pop-qrcodemake 일때 예외상황 script */
-				front.loadingData();
-				setTimeout(function(){
-					$("html, body").css("height", "auto");
-					$("#wrap").css("height", "auto").css("overflow-y", "auto");
-					$("body").removeClass("modalStyle");
-					setTimeout(function(){
-						$("body > .pop-transparents-layer").remove();
-						modalEl.addClass("bgTransition");
-						setTimeout(function(){
-							modalEl.removeClass("active");
-							$(".modalpop").removeClass("active");
-							location.href='qrcode_make_complete.html';
-						}, 500);
-					}, 500);
-				}, 500);	
-			}else{
-				$("html, body").css("height", "auto");
-				$("#wrap").css("height", "auto").css("overflow-y", "auto");
-				$("body").removeClass("modalStyle");
-				setTimeout(function(){
-					$(".modalpop").removeClass("active");
-					$("body > .pop-transparents-layer").remove();
-					modalEl.removeClass("active");
-				}, 500);
-			}
+			$("html, body").css("height", "auto");
+			$("#wrap").css("height", "auto").css("overflow-y", "auto");
+			$("body").removeClass("modalStyle");
+			setTimeout(function(){
+				$(".modalpop").removeClass("active");
+				$("body > .pop-transparents-layer").remove();
+				modalEl.removeClass("active");
+			}, 500);
 		}else{
 			parentModal = $("."+parentModal);
 			if (parentCloseYN === true){

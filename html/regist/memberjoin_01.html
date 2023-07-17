@@ -25,6 +25,12 @@
 		<h2><strong>이름을 입력해주세요</strong></h2>
 		<fieldset class="memberjoin">
 			<ul class="formgroup">
+				<li class="insert-cellphone">
+					<label class="input-over">휴대폰번호</label>
+					<div>
+						<p class="inpbox"><input type="text"></p>
+					</div>
+				</li>
 				<li class="insert-cp">
 					<label class="input-over">통신사</label>
 					<div>
@@ -34,12 +40,6 @@
 								<option>SKT 알뜰폰</option><option>KT 알뜰폰</option><option>LG U+ 알뜰폰</option>
 							</select>
 						</p>
-					</div>
-				</li>
-				<li class="insert-cellphone">
-					<label class="input-over">휴대폰번호</label>
-					<div>
-						<p class="inpbox"><input type="text"></p>
 					</div>
 				</li>
 				<li class="insert-jumin">
@@ -61,25 +61,18 @@
 <script src="../../resources/js/front_ui.js"></script>
 <script>
 function nextForm(){
-	if ($(".insert-name").is(".on") && !$(".insert-jumin").is(".on") && !$(".insert-cellphone").is(".on") && !$(".insert-cp").is(".on")){
+	if ($(".insert-name").is(".on") && !$(".insert-jumin").is(".on") && !$(".insert-cp").is(".on") && !$(".insert-cellphone").is(".on")){
 		$(".insert-jumin").fadeIn(1000).addClass("on");
 		$("h2 strong").text("주민등록번호를 입력해주세요");
-	}else if ($(".insert-name").is(".on") && $(".insert-jumin").is(".on") && !$(".insert-cellphone").is(".on") && !$(".insert-cp").is(".on")){
-		$(".insert-cellphone").fadeIn(1000).addClass("on");
-		$("h2 strong").text("휴대폰번호를 입력해주세요");
-	}else if ($(".insert-name").is(".on") && $(".insert-jumin").is(".on") && $(".insert-cellphone").is(".on") && !$(".insert-cp").is(".on")){
+	}else if ($(".insert-name").is(".on") && $(".insert-jumin").is(".on") && !$(".insert-cp").is(".on") && !$(".insert-cellphone").is(".on")){
 		$(".insert-cp").fadeIn(1000).addClass("on");
+		$("h2 strong").text("휴대폰번호를 입력해주세요");
+	}else if ($(".insert-name").is(".on") && $(".insert-jumin").is(".on") && $(".insert-cp").is(".on") && !$(".insert-cellphone").is(".on")){
+		$(".insert-cellphone").fadeIn(1000).addClass("on");
 		$("h2 strong").text("통신사를 선택해주세요");
-	}else if ($(".insert-name").is(".on") && $(".insert-jumin").is(".on") && $(".insert-cellphone").is(".on") && $(".insert-cp").is(".on")){
+	}else if ($(".insert-name").is(".on") && $(".insert-jumin").is(".on") && $(".insert-cp").is(".on") && $(".insert-cellphone").is(".on")){
 		location.href='memberjoin_02.html';
 	}
-	
-	/*else if ($(".insert-cellphone").is(".on")){
-		$(".insert-cp").fadeIn(1000).addClass("on");
-		$("h2 strong").text("통신사를 선택해주세요");
-	}else if ($(".insert-cp").is(".on")){
-		location.href='memberjoin_02.html'
-	} */
 }
 </script>
 </body>

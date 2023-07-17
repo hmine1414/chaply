@@ -22,28 +22,21 @@
 
 <div id="wrap">
 	<div class="qrcode-container">
-		<div class="qrcode_complete">
-			<h2>
-				<strong>안심QR 번호판 생성 완료</strong><span>이제 이동주차 연락은 차플리가 받을게요.</span>
-			</h2>
+		<div class="my-qrcode-request">
+			<h2><strong>나의 안심QR코드</strong></h2>
 			<div class="qrviewbox">
 				<p class="bg-qr-img"><img src="../../resources/images/bg_qrcard.png" alt=""></p>
 				<div class="my-qrcode">
-					<strong class="car-number">12가 5555</strong>
-					<p class="qr-img"><img src="../../resources/images/temp_qrcode.png" alt=""></p>
-					<span class="txt">QR코드를 스캔하면 <br>차주에게 자동알림이 갑니다.</span>
+					<button type="button" class="btn-qr-ad" onclick="location.href='qrcode_make.html'">QR 추가 생성</button>
 				</div>
 			</div>
-			<span class="btn-fixed"><button type="button" class="btn-white" onclick="location.href='my_qrcode.html'">서비스 시작하기</button></span>
+			<p class="txt-qrmate-request">서비스 이용을 위해 <br>안심 QR코드를 생성 해주세요!</p>
 		</div>
 	</div>
 </div>
 
 <script src="../../resources/js/front_ui.js"></script>
 <script>
-setTimeout(function(){
-	$(".qrcode_complete").addClass("bgTransition");
-}, 700);		
 </script>
 </body>
 </html>
