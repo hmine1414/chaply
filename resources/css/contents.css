@@ -266,6 +266,8 @@ ul.formgroup li.insert-auth > div p.inpbox .btn-delete {position:absolute; right
 ul.formgroup li.insert-jumin > div {display:flex; align-items:center; justify-content:space-between}
 ul.formgroup li.insert-jumin > div .inpbox {width:calc((100% - 3.5rem) / 2)}
 ul.formgroup li.insert-jumin > div em {width:3.5rem; height:3.5rem; text-align:center; font-size:1.6rem; color:#232b37; font-weight:700}
+ul.formgroup li.insert-cp > label {display:none}
+ul.formgroup li.insert-cp a.cp-value-holder {display:block; width:100%; height:3.5rem; background:transparent url('../images/icon_selectarr.png') no-repeat calc(100% - 1rem) 50%; background-size:1.2rem auto; border-bottom:1px solid #f2f2f5; line-height:3.5rem; font-size:2rem; color:#afb7bf; font-weight:300}
 ul.formgroup li > div .msg-error {display:block; padding-top:1rem; color:#ff3333; font-size:1.4rem; font-weight:700}
 ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 
@@ -369,6 +371,16 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 .member-container .welcome-show-qrcode .squarebox .inner > p::after {position:absolute; left:3rem; bottom:8rem; width:9.5rem; height:10rem; opacity:0; background:url('../images/img_welcome_tack_04.png') no-repeat 50%; background-size:100% auto; content:''; transition:all 0.4s ease-in-out}
 .member-container .welcome-show-qrcode .squarebox .tack-5 {position:absolute; left:5rem; top:9rem; width:10rem; height:10.2rem; opacity:0; background:url('../images/img_welcome_tack_05.png') no-repeat 50%; background-size:100% auto; transition:all 0.4s ease-in-out}
 .member-container .welcome-show-qrcode .squarebox .tack-6 {position:absolute; left:9rem; bottom:7rem; width:4rem; height:4.5rem; opacity:0; background:url('../images/img_welcome_tack_07.png') no-repeat 50%; background-size:100% auto; transition:all 0.4s ease-in-out}
+.member-container .layer-bottom-fixed {opacity:0; transition:all 0.6s 0.5s; z-index:-1; position:fixed; left:0; bottom:-50rem; width:100%; height:34rem; padding:2rem; background:#fff; border-radius:1.2rem 1.2rem 0 0}
+.member-container .layer-bottom-fixed a.holder {display:flex; align-items:center; justify-content:flex-start; width:100%; height:4.8rem; font-weight:800; color:#232b37; font-size:1.8rem}
+.member-container .layer-bottom-fixed.on {bottom:0; opacity:1; z-index:50}
+.member-container .layer-bottom-fixed ul {height:24rem; overflow-y:auto; overflow-x:hidden}
+.member-container .layer-bottom-fixed ul::-webkit-scrollbar {width:4px}
+.member-container .layer-bottom-fixed ul::-webkit-scrollbar-track {background-color:#f8f8f8}
+.member-container .layer-bottom-fixed ul::-webkit-scrollbar-thumb {border-radius:2px; background-color:#eee; border:0}
+.member-container .layer-bottom-fixed ul::-webkit-scrollbar-button {width:0; height:0}
+.member-container .layer-bottom-fixed ul li {height:4.8rem}
+.member-container .layer-bottom-fixed ul li a {display:flex; align-items:center; justify-content:flex-start; width:100%; height:4.8rem; font-weight:400; color:#232b37; font-size:1.7rem}
 
 .qrviewbox .bg-qr-img {position:relative; z-index:20; width:100%; border-radius:0.8rem; overflow:hidden}
 .qrviewbox .bg-qr-img img {width:100%}
@@ -380,7 +392,8 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 .qrviewbox .my-qrcode .txt {position:absolute; left:5%; bottom:35%; width:90%; text-align:center; color:#a4aab0; font-size:1.4rem}
 .qrviewbox .my-qrcode .btn-qr-ad {position:absolute; left:50%; top:15%; width:14.4rem; height:14.4rem; margin-left:-7.2rem; background:url('../images/bg_qr_regist.png') no-repeat 50%; background-size:100% auto; border-radius:1rem; text-indent:-99999rem; font-size:0; }
 
-.my_qrcode_setting {position:relative; width:100%; height:calc(100vh - 4rem); overflow:hidden; padding:4rem 0 0 0; background:url('../images/bg_myqr.jpg') no-repeat 100% 100%; background-size:cover}
+.my_qrcode_setting {position:relative; width:100%; height:calc(100vh - 8rem); overflow:hidden; padding:8rem 0 0 0; background:url('../images/bg_myqr.jpg') no-repeat 100% 100%; background-size:cover}
+.my_qrcode_setting .btn-logout {position:absolute; right:2rem; top:1rem; width:3rem; height:3rem; background:url('../images/icon_logout.png') no-repeat 50%; background-size:2rem auto; font-size:0; text-indent:-99999rem}
 .my_qrcode_setting .myQrcode-roll {width:100%}
 .my_qrcode_setting .myQrcode-roll .swiper-slide {width:67% !important; height:100%; opacity:0.2; background-position:center; background-size:cover}
 .my_qrcode_setting .myQrcode-roll .swiper-slide .qrviewbox .my-qrcode .car-number {left:10%}
@@ -461,9 +474,7 @@ ul.formgroup li.error div p.inpbox {border-bottom:2px solid #ff3333}
 
 
 @media (max-width:375px) {	
-	/* .chabbae-start {position:absolute; left:0; top:2rem; transform:translateY(0); width:100%; height:auto; padding:0 2rem 2rem 2rem} */
-
-	.my_qrcode_setting {height:100vh; padding:3rem 0 0 0}
+	.my_qrcode_setting {height:calc(100vh - 3rem);padding:3rem 0 0 0}
 	.my_qrcode_setting .qrcode-show {margin-bottom:5rem}
 	.my_qrcode_setting .qrcode-show > h2 {margin:0 0 2.8rem 0}
 }

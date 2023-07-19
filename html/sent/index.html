@@ -241,7 +241,7 @@
 					<fieldset>
 						<div class="formgroup">
 							<label>휴대폰 번호</label>
-							<p class="inpbox"><input type="text" value="010-7888-4444"></p>
+							<p class="inpbox"><input type="text" placeholder="휴대폰번호 입력"></p>
 						</div>
 						<span class="txt-caution-msg">본인의 연락처로 작성해주세요.</span>
 						<div class="agreechk">
@@ -280,7 +280,7 @@
 					<fieldset>
 						<div class="formgroup">
 							<label>휴대폰 번호</label>
-							<p class="inpbox"><input type="text" value="010-7888-4444"></p>
+							<p class="inpbox"><input type="text" placeholder="휴대폰번호 입력"></p>
 						</div>
 						<span class="txt-caution-msg">본인의 연락처로 작성해주세요.</span>
 						<div class="agreechk">
@@ -334,14 +334,10 @@ $(".btn-alram").click(function(){
 	$("html, body").animate({scrollTop:'0'}, 600);	
 });
 
-function arsReCall(){
-	if ($(".ars-calling").is(".hidden")){
-		$(".ars-calling").removeClass("hidden");
-	}
+function arsReCall(){	
 	$("ul.calling-msg li.recall").hide();
 	$("ul.calling-msg li:first-child").css("display", "flex");
 	$("ul.calling-msg li:first-child span").text("차플리가 대신 전화 거는 중이에요.");
-	directMsgToggle();
 	clearTimeout();
 	Countdown(7); // 7s setting
 	setTimeout(function(){

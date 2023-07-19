@@ -23,6 +23,7 @@
 <div id="wrap">
 	<div class="member-container">
 		<h2><strong>이름을 입력해주세요</strong></h2>
+
 		<fieldset class="memberjoin">
 			<ul class="formgroup">
 				<li class="insert-cellphone">
@@ -34,12 +35,7 @@
 				<li class="insert-cp">
 					<label class="input-over">통신사</label>
 					<div>
-						<p class="optionbox">
-							<select>
-								<option>통신사</option><option>SKT</option><option>KT</option><option>LG U+</option>
-								<option>SKT 알뜰폰</option><option>KT 알뜰폰</option><option>LG U+ 알뜰폰</option>
-							</select>
-						</p>
+						<a href="javascript: optionLayerToggle()" class="cp-value-holder">통신사</a>
 					</div>
 				</li>
 				<li class="insert-jumin">
@@ -55,11 +51,41 @@
 			</ul>
 			<button type="button" class="btn-black" onclick="nextForm()">다음</button>
 		</fieldset>
+
+		<div class="layer-bottom-fixed">
+			<a href="javascript: optionLayerToggle()" class="holder">통신사</a>
+			<div class="optionbox-layer">
+				<ul>
+					<li><a href="javascript: optionLayerToggle('SKT')">SKT</a></li>
+					<li><a href="javascript: optionLayerToggle('KT')">KT</a></li>
+					<li><a href="javascript: optionLayerToggle('LG U+')">LG U+</a></li>
+					<li><a href="javascript: optionLayerToggle('SKT 알뜰폰')">SKT 알뜰폰</a></li>
+					<li><a href="javascript: optionLayerToggle('KT 알뜰폰')">KT 알뜰폰</a></li>
+					<li><a href="javascript: optionLayerToggle('LG U+ 알뜰폰')">LG U+ 알뜰폰</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </div>
 
 <script src="../../resources/js/front_ui.js"></script>
 <script>
+function optionLayerToggle(tValue){
+	if (tValue){
+		$("ul.formgroup li.insert-cp .cp-value-holder").text(tValue);
+		$("body > .transparents-layer").remove();
+		$(".layer-bottom-fixed").removeClass("on");
+	}else{
+		if (!$(".layer-bottom-fixed").is(".on")){
+			$("body").append("<div class='transparents-layer'></div>");
+			$(".layer-bottom-fixed").addClass("on");
+		}else{
+			$("body > .transparents-layer").remove();
+			$(".layer-bottom-fixed").removeClass("on");
+		}
+	}
+}
+
 function nextForm(){
 	if ($(".insert-name").is(".on") && !$(".insert-jumin").is(".on") && !$(".insert-cp").is(".on") && !$(".insert-cellphone").is(".on")){
 		$(".insert-jumin").fadeIn(1000).addClass("on");

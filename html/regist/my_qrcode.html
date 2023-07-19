@@ -24,6 +24,7 @@
 <div id="wrap">
 	<div class="my_qrcode_setting">
 		<div class="qrcode-show">
+			<button type="button" class="btn-logout" title="로그아웃">로그아웃</button>
 			<h2><strong>나의 안심QR코드</strong></h2>			
 			<div class="swiper myQrcode-roll">
 				<div class="swiper-wrapper">
@@ -153,8 +154,9 @@ function saveAlert(){
 	var alertEl = $(".qrcode-alert");
 	if (!alertEl.is(".show")){
 		alertEl.addClass("show");
-	}else{
-		alertEl.removeClass("show");
+		setTimeout(function(){
+			alertEl.removeClass("show");
+		}, 2000);
 	}
 }
 </script>
